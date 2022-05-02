@@ -13,19 +13,42 @@
     <div class="form_main_responsive_div">
         <div class="form_second_responsive_div">
             <div class="form_main">
-                <h1 class="titolo_form">Accesso</h1>
-                <div class="form_main_sub_div">
-                    <div class="input_div">
-                        <input type="text" name="username" class="text_input" placeholder="Username">
-                        <p class="username_error"></p>
+                <div class="form_div_main">
+                    <div class="accesso_div">
+                        <h1 class="titolo_form">Accesso</h1>
+                        <div class="form_main_sub_div">
+                            <div class="input_div">
+                                <input type="text" name="username" class="text_input" placeholder="Username">
+                                <p class="username_error"></p>
+                            </div>
+                            <div class="input_div">
+                                <input type="password" name="password1" class="text_input" placeholder="Password">
+                                <p class="password1_error"></p>
+                            </div>
+                            <input type="submit" class="button" value="Accedi"> 
+                        </div>
+                        <p class="messaggio_form">Non hai un account? <span onclick="logic.FormDivToggle()" class="switch_form" >Registrati</span> </p>
                     </div>
-                    <div class="input_div">
-                        <input type="password" name="username" class="text_input" placeholder="Password">
-                        <p class="password1_error"></p>
+                    <div class="registrazione_div">
+                        <h1 class="titolo_form">Registrazione</h1>
+                        <div class="form_main_sub_div">
+                            <div class="input_div">
+                                <input type="text" name="username" class="text_input" placeholder="Username">
+                                <p class="username_error"></p>
+                            </div>
+                            <div class="input_div">
+                                <input type="password" name="password1" class="text_input" placeholder="Password">
+                                <p class="password1_error"></p>
+                            </div>
+                            <div class="input_div">
+                                <input type="password" name="password2" class="text_input" placeholder="Password">
+                                <p class="password2_error"></p>
+                            </div>
+                            <input type="submit" class="button" value="Registrati"> 
+                        </div>
+                        <p class="messaggio_form">Hai gia un account? <span onclick="logic.FormDivToggle()" class="switch_form" >Accedi</span> </p>
                     </div>
-                    <input type="submit" class="button" value="Accedi"> 
                 </div>
-                <p class="messaggio_form">Non hai un account? <span class="switch_form" >Registrati</span> </p>
                 <img src="./MEDIA/lib.jpg" class="form_image" alt="img">
             </div>
         </div>

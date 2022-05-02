@@ -25,7 +25,7 @@ body{
     src: url("../FONTS/Poppins-Light.ttf");
 }
 
-.main_div, .form_main_responsive_div, .form_second_responsive_div, .form_main, .form_main_sub_div, .input_div{
+.main_div, .form_main_responsive_div, .form_second_responsive_div, .form_main, .form_main_sub_div, .input_div, .accesso_div, .registrazione_div, .form_div_main{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,11 +45,13 @@ body{
 
 .form_main{
     justify-content:center;
-    align-items: center;
+    align-items: flex-start;
     box-shadow: 2px 2px 5px 0 rgb(58, 58, 58);
     min-width: 430px;
     min-height: 500px;
     position: relative;
+    z-index: 2;
+    overflow-x: hidden;
 }
 
 @media screen and (max-height: 500px){
@@ -62,23 +64,21 @@ body{
 .titolo_form {
     font-family: Poppins2;
     color: rgb(73, 115, 41);
-    font-size: 50px;
+    font-size: 40px;
     margin: 0%;
-    z-index: 1;
+    margin-bottom: 20px;
 }
 
 .form_main_sub_div{
     width: 70%;
     height: 65%;
     justify-content: space-around;
-    z-index: 1;
 }
 
 .messaggio_form{
     font-family: Poppins;
     color: rgb(0, 0, 0);
     font-size: 14px;
-    z-index: 1;
     width: 100%;
     padding: 4px;
     background-color: rgba(186, 186, 186, 0.435);
@@ -112,7 +112,7 @@ body{
     border: none;
     outline: none;
     transition: 0.5s;
-    padding: 15px;
+    padding: 10px;
     color: rgb(0, 0, 0);
     font-family: Poppins;
     font-size: 12px;
@@ -120,7 +120,7 @@ body{
     box-shadow: 2px 2px 5px 0 rgb(116, 116, 116);
 }
 
-.input_div .username_error, .input_div .password1_error{
+.input_div .username_error, .input_div .password1_error, .input_div .password2_error{
     color: rgb(203, 72, 72);
     font-family: Poppins;
     width: 100%;
@@ -155,4 +155,35 @@ body{
     width: 430px;
     height: 500px;
     filter: opacity(0.5);
+}
+
+.accesso_div, .registrazione_div{
+    width: 100%;
+    height: 100%;
+}
+
+.form_div_main{
+    width: 860px;
+    height: 100%;
+    flex-direction: row;
+    position: absolute;
+    z-index: 1;
+    transition: ease-in-out 0.2s;
+}
+
+.form_div_main_toggle{
+    transform: translateX(-50%);
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: rgb(152, 206, 111);
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgb(70, 118, 33);
 }
