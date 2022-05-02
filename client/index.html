@@ -6,9 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="logic.js"></script>
     <script src="middleware.js"></script>
+    <link rel="stylesheet" href="./CSS/index.css">
     <title>Casa Editrice</title>
 </head>
 <body>
-    <input type="button" value="Premi" onclick="logic.ff()">
+    <div class="form_main_responsive_div">
+        <div class="form_second_responsive_div">
+            <div class="form_main">
+                <h1 class="titolo_form">Accesso</h1>
+                <div class="form_main_sub_div">
+                    <div class="input_div">
+                        <input type="text" name="username" class="text_input" placeholder="Username">
+                        <p class="username_error"></p>
+                    </div>
+                    <div class="input_div">
+                        <input type="password" name="username" class="text_input" placeholder="Password">
+                        <p class="password1_error"></p>
+                    </div>
+                    <input type="submit" class="button" value="Accedi"> 
+                </div>
+                <p class="messaggio_form">Non hai un account? <span class="switch_form" >Registrati</span> </p>
+                <img src="./MEDIA/lib.jpg" class="form_image" alt="img">
+            </div>
+        </div>
+    </div>
 </body>
 </html>

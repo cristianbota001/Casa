@@ -10,10 +10,8 @@ window.onload = () => {
 class Logic{
 
     constructor(){
+        
         this.middleware = new Middleware();
-    }
-
-    ff(){
-        this.middleware.SendRequest()
+        
     }
 }
