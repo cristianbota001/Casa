@@ -2,6 +2,10 @@
 
     class Forms{
 
+        function __construct($dbaccess){
+            $this->dbaccess = $dbaccess;
+        }
+
         function ValidateLoginForm($form){
             $errors = [];
             if (!$form["username"]){
@@ -11,7 +15,7 @@
                 $errors["password1"] = "Compilare il campo";
             }
             if (!$errors){
-                if (!$this->Authenticate($form)){
+                if (!$this->dbaccess->Authenticate($form)){
                     $errors["password1"] = "Utente o password errati";
                 }
             }

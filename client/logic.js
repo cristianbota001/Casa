@@ -16,7 +16,11 @@ class Logic{
     }
 
     AddEvents(){
-       
+       document.querySelector("#accedi_bottone").addEventListener("click", (e) => {
+           e.preventDefault(); //rivedere
+           let form = new FormData(document.querySelector("#access_form"));
+           this.middleware.SendRequest("POST", form);
+       })
     }
 
     FormDivToggle(){

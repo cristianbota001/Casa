@@ -4,13 +4,11 @@ class Middleware{
         this.url = "http://localhost/casa_editrice_web_app/rest/middleware.php";
     }
 
-    SendRequest(){
-        fetch(this.url, {method : "GET"}).then((response) => {
-            return response.json();
+    SendRequest(method, body){
+        fetch(this.url, {method : method, body:body}).then((response) => {
+            return response.text();
         }).then((json_data) => {
             console.log(json_data)
-        }).catch((error) => {
-            console.log(error)
         })
     }
 }

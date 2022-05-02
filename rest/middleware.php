@@ -6,8 +6,8 @@ class Middleware{
     
     function __construct($request){
         $this->request = $request;
-        $this->SwitchRequestMethod();
         $this->logic = new Logic();
+        $this->SwitchRequestMethod();
     }
 
     private function SwitchRequestMethod(){
@@ -27,7 +27,7 @@ class Middleware{
 
     private function SwitchMethodPost(){
         if (isset($_POST["username"]) && isset($_POST["password1"])){
-            $response = $logic->ValidateLoginForm($_POST);
+            $response = $this->logic->ValidateLoginForm($_POST);
             if ($response == true){
                 //aggiunta sessione
                 echo "{'ok':'/'}"; // funzione per ok

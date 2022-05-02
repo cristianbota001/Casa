@@ -7,11 +7,11 @@
 
         function __construct(){
             session_start();
-            $this->form = new Forms();
             $this->dbaccess = new DBAccess();
+            $this->form = new Forms($this->dbaccess);
         }
 
-        private function ValidateLoginForm($form){
+        public function ValidateLoginForm($form){
             $errors = $this->form->ValidateLoginForm($form);
             if ($errors){
                 return $errors;
