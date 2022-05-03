@@ -7,12 +7,7 @@ body{
     height: 100vh;
     margin: 0%;
     overflow-y: hidden;
-    
-    background-image: linear-gradient(to bottom right, rgb(193, 231, 149), rgb(149, 168, 231), rgb(192, 205, 250), rgb(231, 149, 163));
-    
-    /* background-image: url("../MEDIA/lib3.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; */
+    background-image: linear-gradient(to bottom right,  rgb(149, 168, 231), rgb(250, 182, 193));
 }
 
 @font-face {
@@ -30,7 +25,7 @@ body{
     src: url("../FONTS/Poppins-Light.ttf");
 }
 
-.main_div, .form_main_responsive_div, .form_second_responsive_div, .form_main, .form_main_sub_div, .input_div, .accesso_div, .registrazione_div, .form_div_main{
+.main_div, .form_main_responsive_div, .form_second_responsive_div, .form_main, .form_main_sub_div, .input_div, .accesso_div, .registrazione_div, .form_div_main, .rimani_connesso_div, .button_cont{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,20 +80,32 @@ body{
 .messaggio_form{
     font-family: Poppins;
     color: rgb(0, 0, 0);
-    font-size: 14px;
-    width: 100%;
-    padding: 4px;
+    font-size: 12px;
+    width: 260px;
     text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 5px;
 }
 
 .switch_form{
     cursor: pointer;
-    text-decoration: underline;
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    min-width: 100px;
+    transition: 0.2s;
+}
+
+.switch_form:hover{
     color: rgb(45, 100, 145);
 }
 
 .input_div{
-    height: 90px;
+    height: fit-content;
     min-width: 100%;
     justify-content: space-around;
 }
@@ -118,7 +125,7 @@ body{
     border: none;
     outline: none;
     transition: 0.5s;
-    padding: 15px;
+    padding: 13px;
     color: rgb(0, 0, 0);
     font-family: Poppins;
     font-size: 12px;
@@ -135,10 +142,11 @@ body{
     font-size: 12px;
     min-height: 20px;
     margin: 0%;
+    margin-top: 10px;
 }
 
 .button{
-    width: 80%;
+    width: 100%;
     height: 40px;
     padding: 10px;
     border: none;
@@ -150,7 +158,7 @@ body{
     background-color: rgb(70, 137, 191);
     cursor: pointer;
     box-shadow: 2px 2px 5px 0 rgb(58, 58, 58);
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .button:hover{
@@ -194,4 +202,22 @@ body{
 
 ::-webkit-scrollbar-thumb{
     background-color: rgb(84, 111, 197);
+}
+
+.rimani_connesso_div{
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.rimani_connesso_div label{
+    font-family: Poppins;
+    color: white;
+    font-size: 12px;
+}
+
+.button_cont{
+    width: 80%;
+    height: 80px;
+    justify-content: space-between;
 }
