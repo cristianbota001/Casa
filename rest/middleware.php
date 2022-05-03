@@ -38,22 +38,14 @@ class Middleware{
 
     private function LoginForm(){
         $response = $this->logic->ValidateLoginForm($_POST);
-        if ($response === true){
-            //aggiunta sessione
-            echo "{'ok':'/'}"; // funzione per ok
-        }else{
-            echo json_encode($response);
-        }
+        //aggiunta sessione
+        echo json_encode($response);
     }
 
     private function RegistrationForm(){
         $response = $this->logic->ValidateRegistrationForm($_POST);
-        if ($response === true){
-            //aggiunta sessione
-            echo "{'ok':'/'}"; // funzione per ok
-        }else{
-            echo json_encode($response);
-        }
+        //aggiunta sessione
+        echo json_encode($response);
     }
 
 }

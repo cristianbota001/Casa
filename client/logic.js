@@ -28,12 +28,12 @@ class Logic{
         e.preventDefault(); //rivedere
         let form = new FormData(document.querySelector(id_form));
         this.middleware.SendFormData(form).then(json_data => {
-            this.GestioneForm(json_data)
+            this.GestioneForm(json_data.response)
         })
     }
 
     GestioneForm(json_data){
-        if (json_data){
+        if (json_data !== "ok"){
             document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = json_data.username ? json_data.username : ""
             document.querySelectorAll(".password1_error")[this.page_form_index].innerHTML = json_data.password1 ? json_data.password1 : ""
             document.querySelector(".password2_error").innerHTML = json_data.password2 ? json_data.password2 : ""

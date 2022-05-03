@@ -13,20 +13,24 @@
 
         public function ValidateLoginForm($form){
             $errors = $this->form->ValidateLoginForm($form);
-            if (count($errors) > 0){
+            if (count($errors["response"]) > 0){
                 return $errors;
             }else{
-                return true;
+                return ["response" => "ok"];
             }
         }
 
         public function ValidateRegistrationForm($form){
             $errors = $this->form->ValidateRegistrationForm($form);
-            if (count($errors) > 0){
+            if (count($errors["response"]) > 0){
                 return $errors;
             }else{
                 //salvataggio database
-                return true;
+                if ($this->dbaccess->AddNewAdmin($form["username"], $form["password1"])){
+                    return ["response" => "ok"];
+                }else{
+                    return ["response" => ["password2" => "Utente gia esistente"]];
+                }
             }
         }
         

@@ -10,9 +10,28 @@
             $this->conn = mysqli_connect($this->server_name, $this->username, $this->password, $this->db);
         }
 
-        function Authenticate($form){
-            $ris = mysqli_query($this->conn, "SELECT * FROM amministratore WHERE amministratore.nome = '". $form["username"] ."' AND amministratore.password = '". md5($form["password1"]) ."';");
+        private function BooleanQuery($ris){
             if ($ris->num_rows > 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function Authenticate($form){
+            $ris = mysqli_query($this->conn, "SELECT * FROM amministratore WHERE amministratore.username = '". $form["username"] ."' AND amministratore.password = '". md5($form["password1"]) ."';");
+            return $this->BooleanQuery($ris);
+        }
+
+        private function CheckIfUserExists($username){
+            $ris = mysqli_query($this->conn, "SELECT * FROM amministratore WHERE amministratore.username = '$username';");
+            return $this->BooleanQuery($ris);
+        }
+
+        public function AddNewAdmin($username, $password){
+            if (!$this->CheckIfUserExists($username)){
+                $password = md5($password);
+                mysqli_query($this->conn, "INSERT INTO amministratore (username, password) VALUES ('$username', '$password')");
                 return true;
             }else{
                 return false;

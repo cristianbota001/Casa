@@ -7,16 +7,16 @@
         }
 
         function ValidateLoginForm($form){
-            $errors = [];
+            $errors = ["response" => []];
             if (!$form["username"]){
-                $errors["username"] = "Compilare il campo";
+                $errors["response"]["username"] = "Compilare il campo";
             }
             if (!$form["password1"]){
-                $errors["password1"] = "Compilare il campo";
+                $errors["response"]["password1"] = "Compilare il campo";
             }
-            if (!$errors){
+            if (!$errors["response"]){
                 if (!$this->dbaccess->Authenticate($form)){
-                    $errors["password1"] = "Utente o password errati";
+                    $errors["response"]["password1"] = "Utente o password errati";
                 }
             }
     
@@ -24,26 +24,25 @@
         }
 
         function ValidateRegistrationForm($form){
-            $errors = [];
+            $errors = ["response" => []];
             if ($form["username"]){
                 // controllo in più
             }else{
-                $errors["username"] = "Compilare il campo";
+                $errors["response"]["username"] = "Compilare il campo";
             }
             if ($form["password1"] && $form["password2"]){
                 if ($form["password1"] != $form["password2"]){
-                    $errors["password2"] = "Riscrivere correttamente la password";
+                    $errors["response"]["password2"] = "Riscrivere correttamente la password";
                 }
             }
             if (!$form["password1"]){
-                $errors["password1"] = "Compilare il campo";
+                $errors["response"]["password1"] = "Compilare il campo";
             }
             if (!$form["password2"]){
-                $errors["password2"] = "Compilare il campo";
+                $errors["response"]["password2"] = "Compilare il campo";
             }
             return $errors;
         }
-
     }
 
 ?>
