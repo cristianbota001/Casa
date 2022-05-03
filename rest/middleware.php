@@ -26,13 +26,28 @@ class Middleware{
     }
 
     private function SwitchMethodPost(){
-        if (isset($_POST["username"]) && isset($_POST["password1"])){
+        if (isset($_POST["username"]) && isset($_POST["password1"]) && isset($_POST["password2"])){
+            $this->RegistrationForm();
+        }
+        else if (isset($_POST["username"]) && isset($_POST["password1"])){
             $this->LoginForm();
+        }else{
+            //forbidden response 403
         }
     }
 
     private function LoginForm(){
         $response = $this->logic->ValidateLoginForm($_POST);
+        if ($response === true){
+            //aggiunta sessione
+            echo "{'ok':'/'}"; // funzione per ok
+        }else{
+            echo json_encode($response);
+        }
+    }
+
+    private function RegistrationForm(){
+        $response = $this->logic->ValidateRegistrationForm($_POST);
         if ($response === true){
             //aggiunta sessione
             echo "{'ok':'/'}"; // funzione per ok

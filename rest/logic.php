@@ -19,6 +19,16 @@
                 return true;
             }
         }
+
+        public function ValidateRegistrationForm($form){
+            $errors = $this->form->ValidateRegistrationForm($form);
+            if (count($errors) > 0){
+                return $errors;
+            }else{
+                //salvataggio database
+                return true;
+            }
+        }
         
         private function CheckSession(){
             
