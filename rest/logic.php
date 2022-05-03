@@ -13,7 +13,7 @@
 
         public function ValidateLoginForm($form){
             $errors = $this->form->ValidateLoginForm($form);
-            if ($errors){
+            if (count($errors) > 0){
                 return $errors;
             }else{
                 return true;

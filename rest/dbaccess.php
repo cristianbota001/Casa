@@ -11,7 +11,7 @@
         }
 
         function Authenticate($form){
-            $ris = mysqli_query($this->conn, "SELECT * FROM utente WHERE utente.username = '". $form["username"] ."' AND utente.password = '". md5($form["password1"]) ."';");
+            $ris = mysqli_query($this->conn, "SELECT * FROM amministratore WHERE amministratore.nome = '". $form["username"] ."' AND amministratore.password = '". md5($form["password1"]) ."';");
             if ($ris->num_rows > 0){
                 return true;
             }else{
