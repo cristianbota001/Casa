@@ -22,7 +22,9 @@ class Middleware{
     }
 
     private function SwitchMethodGet(){
-        
+        if (isset($_GET["check_username"])){
+            echo json_encode($this->CheckIfAdminExists());
+        }
     }
 
     private function SwitchMethodPost(){
@@ -46,6 +48,10 @@ class Middleware{
         $response = $this->logic->ValidateRegistrationForm($_POST);
         //aggiunta sessione
         echo json_encode($response);
+    }
+
+    private function CheckIfAdminExists(){
+        return $this->logic->CheckIfAdminExists($_GET["check_username"]);
     }
 
 }

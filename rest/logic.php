@@ -29,8 +29,17 @@
                 if ($this->dbaccess->AddNewAdmin($form["username"], $form["password1"])){
                     return ["response" => "ok"];
                 }else{
-                    return ["response" => ["password2" => "Utente gia esistente"]];
+                    return ["response" => ["username" => "Utente gia esistente"]];
                 }
+            }
+        }
+
+        public function CheckIfAdminExists($input_data){
+            $ris = $this->dbaccess->CheckIfUserExists($input_data);
+            if ($ris == true){
+                return ["response" => ["username" => "Utente gia esistente"]];
+            }else{
+                return ["response" => ["username" => "Utente disponibile"]];
             }
         }
         

@@ -23,7 +23,7 @@
             return $this->BooleanQuery($ris);
         }
 
-        private function CheckIfUserExists($username){
+        public function CheckIfUserExists($username){
             $ris = mysqli_query($this->conn, "SELECT * FROM amministratore WHERE amministratore.username = '$username';");
             return $this->BooleanQuery($ris);
         }

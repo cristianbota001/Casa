@@ -16,20 +16,34 @@ class Logic{
     }
 
     AddEvents(){
-       document.querySelector("#accedi_bottone").addEventListener("click", (e) => {
+        document.querySelector("#accedi_bottone").addEventListener("click", (e) => {
            this.SendFormData(e, "#access_form")
-       })
-       document.querySelector("#registrati_bottone").addEventListener("click", (e) => {
+        })
+        document.querySelector("#registrati_bottone").addEventListener("click", (e) => {
            this.SendFormData(e, "#registration_form")
-       })
+        })
+        document.querySelector("#reg_inp").addEventListener("keyup", (e) => {
+            this.SendCheckUsername(document.querySelector("#reg_inp").value)
+        })
     }
 
-    async SendFormData(e, id_form){
+    SendFormData(e, id_form){
         e.preventDefault(); //rivedere
         let form = new FormData(document.querySelector(id_form));
         this.middleware.SendFormData(form).then(json_data => {
             this.GestioneForm(json_data.response)
         })
+    }
+
+    SendCheckUsername(input_data){
+        console.log(input_data)
+        if (input_data != ""){
+            this.middleware.SendCheckUsername(input_data).then(json_data => {
+                this.GestioneForm(json_data.response); //rivedere
+            })
+        }else{
+            document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = ""
+        }
     }
 
     GestioneForm(json_data){
