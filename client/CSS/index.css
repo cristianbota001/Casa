@@ -26,11 +26,16 @@ body{
 }
 
 @font-face {
+    font-family: Nunito2;
+    src: url("../FONTS/Nunito-MediumItalic.ttf");
+}
+
+@font-face {
     font-family: Nunito;
     src: url("../FONTS/Nunito-Medium.ttf");
 }
 
-.main_div, .form_main_responsive_div, .form_second_responsive_div, .form_main, .form_main_sub_div, .input_div, .accesso_div, .registrazione_div, .form_div_main, .rimani_connesso_div, .button_cont{
+.main_div, .form_main_responsive_div, .form_second_responsive_div, .form_main, .form_main_sub_div, .input_div, .accesso_div, .registrazione_div, .form_div_main, .rimani_connesso_div, .button_cont, .titolo_cont{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +58,7 @@ body{
     align-items: flex-start;
     box-shadow: 2px 2px 5px 0 rgb(58, 58, 58);
     min-width: 430px;
-    min-height: 520px;
+    min-height: 550px;
     position: relative;
     z-index: 2;
     overflow-x: hidden;
@@ -68,12 +73,26 @@ body{
     }
 }
 
-.titolo_form {
-    font-family: Nunito;
-    color: rgb(0, 0, 0);
+.titolo_cont{
+    width: 100%;
+}
+
+.titolo_form_1 {
+    font-family: Nunito2;
+    color: rgb(70, 137, 191);
     font-size: 40px;
     margin: 0%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.titolo_form_2{
+    font-family: Nunito2;
+    color: rgb(43, 43, 43);
+    margin: 0%;
+}
+
+.titolo_form_1_re{
+    color: rgb(70, 191, 161);
 }
 
 .form_main_sub_div{
@@ -92,7 +111,7 @@ body{
     justify-content: space-around;
     align-items: center;
     position: absolute;
-    bottom: 5px;
+    bottom: 10px;
 }
 
 .switch_form{
@@ -174,7 +193,7 @@ body{
     position: absolute;
     z-index: 0;
     width: 600px;
-    height: 520px;
+    height: 550px;
     filter: opacity(0.5);
 }
 
