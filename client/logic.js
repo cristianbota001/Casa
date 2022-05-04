@@ -36,10 +36,13 @@ class Logic{
     }
 
     SendCheckUsername(input_data){
-        console.log(input_data)
         if (input_data != ""){
             this.middleware.SendCheckUsername(input_data).then(json_data => {
-                this.GestioneForm(json_data.response); //rivedere
+                if (json_data.response !== "ok"){
+                    document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = json_data.response.username
+                }else{
+                    document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = "<span style = 'color:#165C97;'>Username disponbile</span>";
+                }
             })
         }else{
             document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = ""
@@ -48,7 +51,7 @@ class Logic{
 
     GestioneForm(json_data){
         if (json_data !== "ok"){
-            document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = json_data.username ? json_data.username : ""
+            document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = json_data.username ? json_data.username : (this.page_form_index == 1) ? "<span style = 'color:#165C97;'>Username disponbile</span>" : ""
             document.querySelectorAll(".password1_error")[this.page_form_index].innerHTML = json_data.password1 ? json_data.password1 : ""
             document.querySelector(".password2_error").innerHTML = json_data.password2 ? json_data.password2 : ""
         }else{
@@ -61,8 +64,23 @@ class Logic{
     } */
 
     FormDivToggle(){
+        this.FadeEffect()
         document.querySelector(".form_div_main").classList.toggle("form_div_main_toggle")
         this.page_form_index = this.page_form_index == 1 ? 0 : 1
-        this.GestioneForm({})
+        document.querySelectorAll(".input_div").forEach(ele => {ele.querySelector("input").value = ""; ele.querySelector("p").innerHTML = "";})
+    }
+
+    FadeEffect(){
+        if (this.page_form_index == 0) {
+            document.querySelector(".accesso_div").classList.add("fade_out_effect");
+            document.querySelector(".registrazione_div").classList.add("fade_in_effect");
+            document.querySelector(".accesso_div").classList.remove("fade_in_effect");
+            document.querySelector(".registrazione_div").classList.remove("fade_out_effect");
+        }else{
+            document.querySelector(".accesso_div").classList.add("fade_in_effect");
+            document.querySelector(".registrazione_div").classList.add("fade_out_effect");
+            document.querySelector(".accesso_div").classList.remove("fade_out_effect");
+            document.querySelector(".registrazione_div").classList.remove("fade_in_effect");
+        }
     }
 }

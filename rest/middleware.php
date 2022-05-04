@@ -40,13 +40,11 @@ class Middleware{
 
     private function LoginForm(){
         $response = $this->logic->ValidateLoginForm($_POST);
-        //aggiunta sessione
         echo json_encode($response);
     }
 
     private function RegistrationForm(){
         $response = $this->logic->ValidateRegistrationForm($_POST);
-        //aggiunta sessione
         echo json_encode($response);
     }
 

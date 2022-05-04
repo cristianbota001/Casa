@@ -219,7 +219,7 @@ body{
     flex-direction: row;
     position: absolute;
     z-index: 1;
-    transition: ease-in-out 0.2s;
+    transition: ease-in-out 0.3s;
 }
 
 .form_div_main_toggle{
@@ -255,4 +255,24 @@ body{
     width: 100%;
     height: 80px;
     justify-content: space-between;
+}
+
+.fade_out_effect{
+    animation-name: fade_out;
+    animation-duration: 0.4s;
+}
+
+.fade_in_effect{
+    animation-name: fade_in;
+    animation-duration: 0.4s;
+}
+
+@keyframes fade_out{
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes fade_in{
+    from {opacity: 0;}
+    to {opacity: 1;}
 }

@@ -25,21 +25,15 @@
             if (count($errors["response"]) > 0){
                 return $errors;
             }else{
-                //salvataggio database
-                if ($this->dbaccess->AddNewAdmin($form["username"], $form["password1"])){
-                    return ["response" => "ok"];
-                }else{
-                    return ["response" => ["username" => "Utente gia esistente"]];
-                }
+                return ["response" => "ok"];
             }
         }
 
         public function CheckIfAdminExists($input_data){
-            $ris = $this->dbaccess->CheckIfUserExists($input_data);
-            if ($ris == true){
-                return ["response" => ["username" => "Utente gia esistente"]];
+            if ($this->dbaccess->CheckIfUserExists($input_data)){
+                return ["response" => ["username" => "Username gia esistente"]];
             }else{
-                return ["response" => ["username" => "Utente disponibile"]];
+                return ["response" => "ok"];
             }
         }
         

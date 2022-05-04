@@ -29,13 +29,8 @@
         }
 
         public function AddNewAdmin($username, $password){
-            if (!$this->CheckIfUserExists($username)){
-                $password = md5($password);
-                mysqli_query($this->conn, "INSERT INTO amministratore (username, password) VALUES ('$username', '$password')");
-                return true;
-            }else{
-                return false;
-            }
+            $password = md5($password);
+            mysqli_query($this->conn, "INSERT INTO amministratore (username, password) VALUES ('$username', '$password')");
         }
     }
 
