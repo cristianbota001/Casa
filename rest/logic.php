@@ -28,14 +28,6 @@
                 return ["response" => "ok"];
             }
         }
-
-        public function CheckIfAdminExists($input_data){
-            if ($this->dbaccess->CheckIfUserExists($input_data)){
-                return ["response" => ["username" => "Username gia esistente"]];
-            }else{
-                return ["response" => "ok"];
-            }
-        }
         
         private function CheckSession(){
             

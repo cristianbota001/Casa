@@ -26,9 +26,12 @@
         function ValidateRegistrationForm($form){
             $errors = ["response" => []];
             if ($form["username"]){
-                //controllo caratteri
-                if ($this->dbaccess->CheckIfUserExists($form["username"])){
-                    $errors["response"] = ["username" => "Username gia esistente"];
+                if(preg_match('/^[a-zA-Z0-9]+$/', $form["username"]) == 1){
+                    if ($this->dbaccess->CheckIfUserExists($form["username"])){
+                        $errors["response"] = ["username" => "Username gia esistente"];
+                    }
+                }else{
+                    $errors["response"] = ["username" => "Caratteri non validi"];
                 }
             }else{
                 $errors["response"]["username"] = "Compilare il campo";

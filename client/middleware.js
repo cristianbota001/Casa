@@ -9,12 +9,9 @@ class Middleware{
         return ris.json()
     }
 
-    SendFormData(body){
-        return this.SendRequest("POST", body, this.url)
-    }
-
-    SendCheckUsername(input_data){
-        let url = this.url + "/" + "?check_username=" + input_data
-        return this.SendRequest("GET", null, url)
+    SendFormData(body, callback){
+        this.SendRequest("POST", body, this.url).then(json_data => {
+            callback(json_data["response"]);
+        })
     }
 }

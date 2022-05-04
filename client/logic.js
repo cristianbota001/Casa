@@ -22,46 +22,23 @@ class Logic{
         document.querySelector("#registrati_bottone").addEventListener("click", (e) => {
            this.SendFormData(e, "#registration_form")
         })
-        document.querySelector("#reg_inp").addEventListener("keyup", (e) => {
-            this.SendCheckUsername(document.querySelector("#reg_inp").value)
-        })
     }
 
     SendFormData(e, id_form){
         e.preventDefault(); //rivedere
         let form = new FormData(document.querySelector(id_form));
-        this.middleware.SendFormData(form).then(json_data => {
-            this.GestioneForm(json_data.response)
-        })
-    }
-
-    SendCheckUsername(input_data){
-        if (input_data != ""){
-            this.middleware.SendCheckUsername(input_data).then(json_data => {
-                if (json_data.response !== "ok"){
-                    document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = json_data.response.username
-                }else{
-                    document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = "<span style = 'color:#165C97;'>Username disponbile</span>";
-                }
-            })
-        }else{
-            document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = ""
-        }
+        this.middleware.SendFormData(form, this.GestioneForm.bind(logic));
     }
 
     GestioneForm(json_data){
         if (json_data !== "ok"){
-            document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = json_data.username ? json_data.username : (this.page_form_index == 1) ? "<span style = 'color:#165C97;'>Username disponbile</span>" : ""
+            document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = json_data.username ? json_data.username :  ""
             document.querySelectorAll(".password1_error")[this.page_form_index].innerHTML = json_data.password1 ? json_data.password1 : ""
             document.querySelector(".password2_error").innerHTML = json_data.password2 ? json_data.password2 : ""
         }else{
             //redirect alla home
         }
     }
-
-    /* async WaitResponseFromMiddleware(promise){
-        let response = await promise
-    } */
 
     FormDivToggle(){
         this.FadeEffect()
