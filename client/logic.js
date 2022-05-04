@@ -22,6 +22,7 @@ class Logic{
         document.querySelector("#registrati_bottone").addEventListener("click", (e) => {
            this.SendFormData(e, "#registration_form")
         })
+        document.querySelectorAll(".text_input").forEach(ele => {ele.addEventListener("click", () => {ele.style.boxShadow  = "2px 2px 5px 0 rgb(116, 116, 116)"; ele.parentElement.querySelector("p").innerHTML = "" })})
     }
 
     SendFormData(e, id_form){
@@ -35,6 +36,11 @@ class Logic{
             document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = json_data.username ? json_data.username :  ""
             document.querySelectorAll(".password1_error")[this.page_form_index].innerHTML = json_data.password1 ? json_data.password1 : ""
             document.querySelector(".password2_error").innerHTML = json_data.password2 ? json_data.password2 : ""
+            
+            if (json_data.username) {document.querySelectorAll(".username_error")[this.page_form_index].parentElement.querySelector(".text_input").style.boxShadow = "2px 2px 5px 0 rgb(203, 72, 72)";}
+            if (json_data.password1) {document.querySelectorAll(".password1_error")[this.page_form_index].parentElement.querySelector(".text_input").style.boxShadow = "2px 2px 5px 0 rgb(203, 72, 72)";}
+            if (json_data.password2) {document.querySelector(".password2_error").parentElement.querySelector(".text_input").style.boxShadow = "2px 2px 5px 0 rgb(203, 72, 72)";}
+        
         }else{
             //redirect alla home
         }
@@ -44,7 +50,7 @@ class Logic{
         this.FadeEffect()
         document.querySelector(".form_div_main").classList.toggle("form_div_main_toggle")
         this.page_form_index = this.page_form_index == 1 ? 0 : 1
-        document.querySelectorAll(".input_div").forEach(ele => {ele.querySelector("input").value = ""; ele.querySelector("p").innerHTML = "";})
+        document.querySelectorAll(".input_div").forEach(ele => {ele.querySelector("input").value = ""; ele.querySelector("p").innerHTML = ""; ele.querySelector("input").style.boxShadow  = "2px 2px 5px 0 rgb(116, 116, 116)"})
     }
 
     FadeEffect(){

@@ -66,13 +66,6 @@ body{
     border-radius: 20px;
 }
 
-@media screen and (max-height: 570px){
-    .form_main_responsive_div {
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-}
-
 .titolo_cont{
     width: 100%;
 }
@@ -159,7 +152,7 @@ body{
     min-width: 100%;
     border: none;
     outline: none;
-    transition: 0.5s;
+    transition: 0.2s;
     padding: 13px;
     color: rgb(0, 0, 0);
     font-family: Poppins;
@@ -200,12 +193,16 @@ body{
     background-color: rgb(107, 159, 202);
 }
 
-.form_image{
+.form_image, .form_image_2{
     position: absolute;
     z-index: 0;
     width: 600px;
     height: 580px;
     filter: opacity(0.5);
+}
+
+.form_image_2{
+    display: none;
 }
 
 .accesso_div, .registrazione_div{
@@ -275,4 +272,69 @@ body{
 @keyframes fade_in{
     from {opacity: 0;}
     to {opacity: 1;}
+}
+
+@media screen and (max-height: 570px){
+    .form_main_responsive_div {
+        justify-content: flex-start;
+        /* align-items: flex-start; */
+    }
+}
+
+@media screen and (max-width: 550px){
+    .form_main{
+        min-width: 100%;
+        min-height: 100%;
+        border-radius: 0%;
+        background-color: transparent;
+        box-shadow: none;
+        margin-bottom: 100px;
+    }
+    .form_div_main{
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .form_image{
+        height: 100%;
+        display: none;
+    }
+    .form_main_responsive_div{
+        background-color: white;
+    }
+    .form_image_2{
+        width: 100%;
+        min-height: 100%;
+        display: block;
+    }
+    .accesso_div, .registrazione_div{
+        min-width: 100%;
+        max-height: 70%;
+    }
+    .form_div_main_toggle{
+        transform: translateX(-100%);
+    }
+    .princ_titolo_cont{
+        /* margin-bottom: 0px; */
+        width: 70%;
+    }
+    .titolo_form_1{
+        font-size: 30px;
+    }
+    .titolo_form_2{
+        font-size: 17px;
+    }
+    .logo{
+        width: 40px;
+        height: 40px;
+    }
+    .text_input{
+        padding: 10px;
+        font-size: 10px;
+    }
+    .form_main_sub_div{
+        min-height: 50%;
+    }
+    .titolo_cont{
+        margin-bottom: 20px;
+    }
 }
