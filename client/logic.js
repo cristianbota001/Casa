@@ -9,7 +9,9 @@ class Logic{
 
     constructor(){
         this.middleware = new Middleware();
-        this.AddEvents()
+        //this.AddEvents()
+
+        this.Route()
 
         //VARIABLES
         this.page_form_index = 0
@@ -66,5 +68,10 @@ class Logic{
             document.querySelector(".accesso_div").classList.remove("fade_out_effect");
             document.querySelector(".registrazione_div").classList.remove("fade_in_effect");
         }
+    }
+
+    Route(){
+        let current_path = window.location.pathname
+        console.log(current_path)
     }
 }

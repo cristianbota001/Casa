@@ -7,6 +7,10 @@
 
         function __construct(){
             session_start();
+
+            $this->InitSession();
+
+            //VARIABLES
             $this->dbaccess = new DBAccess();
             $this->form = new Forms($this->dbaccess);
         }
@@ -17,6 +21,7 @@
                 return $errors;
             }else{
                 $_SESSION["admin"] = $form["username"];
+                $_SESSION["current_page"] = "home_page";
                 return ["response" => "ok"];
             }
         }
@@ -27,7 +32,14 @@
                 return $errors;
             }else{
                 $_SESSION["admin"] = $form["username"];
+                $_SESSION["current_page"] = "home_page";
                 return ["response" => "ok"];
+            }
+        }
+
+        private function InitSession(){
+            if (!isset($_SESSION["current_page"])){
+                $_SESSION["current_page"] = "form_page";
             }
         }
         
