@@ -7,7 +7,7 @@ body{
     height: 100vh;
     margin: 0%;
     overflow-y: hidden;
-    background-image: linear-gradient(to bottom right,  rgb(149, 168, 231), rgb(250, 182, 193));
+    background-image: linear-gradient(to bottom right,  rgb(186, 198, 237), rgb(239, 184, 193));
 }
 
 @font-face {
@@ -314,7 +314,6 @@ body{
         transform: translateX(-100%);
     }
     .princ_titolo_cont{
-        /* margin-bottom: 0px; */
         width: 70%;
     }
     .titolo_form_1{

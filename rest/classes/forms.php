@@ -60,7 +60,7 @@
                     $errors["response"]["password2"] = "Inserire minimo 8 caratteri";
                 }
             }
-            if (!$errors){
+            if (!$errors["response"]){
                 $this->dbaccess->AddNewAdmin($form["username"], $form["password1"]);
             }
              

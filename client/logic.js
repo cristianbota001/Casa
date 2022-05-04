@@ -13,6 +13,7 @@ class Logic{
 
         //VARIABLES
         this.page_form_index = 0
+        this.url = "http://localhost/casa_editrice_web_app/client/";
     }
 
     AddEvents(){
@@ -42,7 +43,7 @@ class Logic{
             if (json_data.password2) {document.querySelector(".password2_error").parentElement.querySelector(".text_input").style.boxShadow = "2px 2px 5px 0 rgb(203, 72, 72)";}
         
         }else{
-            //redirect alla home
+            window.location = this.url + "home/";
         }
     }
 

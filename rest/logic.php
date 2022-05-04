@@ -16,6 +16,7 @@
             if (count($errors["response"]) > 0){
                 return $errors;
             }else{
+                $_SESSION["admin"] = $form["username"];
                 return ["response" => "ok"];
             }
         }
@@ -25,6 +26,7 @@
             if (count($errors["response"]) > 0){
                 return $errors;
             }else{
+                $_SESSION["admin"] = $form["username"];
                 return ["response" => "ok"];
             }
         }
