@@ -86,6 +86,10 @@ class Logic{
         })
     }
 
+    RemoveLoaderPage(){
+        document.querySelector(".first_panel_loader").style.display = "none"
+    }
+
     Route(){
         switch(sessionStorage.getItem("current_page")){
             case "form_page":{
@@ -93,6 +97,7 @@ class Logic{
                     window.location = this.url
                 }else{
                     this.AddFormPageEvents()
+                    this.RemoveLoaderPage()
                 }
             } break;
             case "home_page":{
