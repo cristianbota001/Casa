@@ -1,0 +1,11 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0%;
+    overflow-y: hidden;
+    background-image: linear-gradient(to bottom right,  rgb(186, 198, 237), rgb(239, 184, 193));
+}

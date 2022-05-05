@@ -22,7 +22,9 @@ class Middleware{
     }
 
     private function SwitchMethodGet(){
-        
+        if (isset($_GET["current_page"])){
+            $this->GetCurrentPageSession();
+        }
     }
 
     private function SwitchMethodPost(){
@@ -37,13 +39,17 @@ class Middleware{
     }
 
     private function LoginForm(){
-        $response = $this->logic->ValidateLoginForm($_POST);
-        echo json_encode($response);
+        $value = $this->logic->ValidateLoginForm($_POST);
+        echo json_encode($value);
     }
 
     private function RegistrationForm(){
-        $response = $this->logic->ValidateRegistrationForm($_POST);
-        echo json_encode($response);
+        $value = $this->logic->ValidateRegistrationForm($_POST);
+        echo json_encode($value);
+    }
+
+    private function GetCurrentPageSession(){
+        echo json_encode($this->logic->GetCurrentPageSession());
     }
 }
 

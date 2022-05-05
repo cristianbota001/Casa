@@ -2,23 +2,25 @@
 var logic;
 
 window.onload = () => {
+
     logic = new Logic();
+    logic.middleware.SendCurrentPageRequest(logic.Route.bind(logic));
+
 }
 
 class Logic{
 
     constructor(){
-        this.middleware = new Middleware();
-        //this.AddEvents()
-
-        this.Route()
 
         //VARIABLES
         this.page_form_index = 0
         this.url = "http://localhost/casa_editrice_web_app/client/";
+        this.middleware = new Middleware();
+        
     }
 
-    AddEvents(){
+    // FORM PAGE ///////////////////////////////////
+    AddFormPageEvents(){
         document.querySelector("#accedi_bottone").addEventListener("click", (e) => {
            this.SendFormData(e, "#access_form")
         })
@@ -69,9 +71,24 @@ class Logic{
             document.querySelector(".registrazione_div").classList.remove("fade_in_effect");
         }
     }
+    // FORM PAGE ///////////////////////////////////
 
-    Route(){
-        let current_path = window.location.pathname
-        console.log(current_path)
+    Route(current_page){
+        console.log(current_page, window.location.pathname)
+        switch (current_page){
+            case "form_page":{
+                if (window.location.pathname != "/casa_editrice_web_app/client/"){
+                    window.location = this.url;
+                }else{
+                    this.AddFormPageEvents()
+                }
+            } break;
+            case "home_page":{
+                if (window.location.pathname != "/casa_editrice_web_app/client/home/"){
+                    window.location = this.url + "home/";
+                }
+            } break;
+        }
     }
+
 }

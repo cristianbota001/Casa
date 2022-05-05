@@ -42,6 +42,10 @@
                 $_SESSION["current_page"] = "form_page";
             }
         }
+
+        public function GetCurrentPageSession(){
+            return $_SESSION["current_page"];
+        }
         
         private function CheckSession(){
             
