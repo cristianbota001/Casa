@@ -22,9 +22,7 @@ class Middleware{
     }
 
     private function SwitchMethodGet(){
-        if (isset($_GET["current_page"])){
-            $this->GetCurrentPageSession();
-        }
+        
     }
 
     private function SwitchMethodPost(){
@@ -48,9 +46,6 @@ class Middleware{
         echo json_encode($value);
     }
 
-    private function GetCurrentPageSession(){
-        echo json_encode($this->logic->GetCurrentPageSession());
-    }
 }
 
 $middleware = new Middleware($_SERVER);

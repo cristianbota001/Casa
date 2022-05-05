@@ -4,19 +4,19 @@ var logic;
 window.onload = () => {
 
     logic = new Logic();
-    logic.middleware.SendCurrentPageRequest(logic.Route.bind(logic));
-
+   
 }
 
 class Logic{
 
     constructor(){
 
-        //VARIABLES
         this.page_form_index = 0
         this.url = "http://localhost/casa_editrice_web_app/client/";
         this.middleware = new Middleware();
         
+        this.InitSession()
+        this.AddWindowEvents()
     }
 
     // FORM PAGE ///////////////////////////////////
@@ -47,6 +47,7 @@ class Logic{
             if (json_data.password2) {document.querySelector(".password2_error").parentElement.querySelector(".text_input").style.boxShadow = "2px 2px 5px 0 rgb(203, 72, 72)";}
         
         }else{
+            sessionStorage.setItem("current_page", "home_page")
             window.location = this.url + "home/";
         }
     }
@@ -73,19 +74,32 @@ class Logic{
     }
     // FORM PAGE ///////////////////////////////////
 
-    Route(current_page){
-        console.log(current_page, window.location.pathname)
-        switch (current_page){
+    InitSession(){
+        if (sessionStorage.getItem("current_page") === null){
+            sessionStorage.setItem("current_page" , "form_page")
+        }
+    }
+
+    AddWindowEvents(){
+        window.addEventListener("pageshow", () => {
+            this.Route()
+        })
+    }
+
+    Route(){
+        switch(sessionStorage.getItem("current_page")){
             case "form_page":{
                 if (window.location.pathname != "/casa_editrice_web_app/client/"){
-                    window.location = this.url;
+                    window.location = this.url
                 }else{
                     this.AddFormPageEvents()
                 }
             } break;
             case "home_page":{
                 if (window.location.pathname != "/casa_editrice_web_app/client/home/"){
-                    window.location = this.url + "home/";
+                    window.location = this.url + "home/"
+                }else{
+                    // add events
                 }
             } break;
         }

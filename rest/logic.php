@@ -6,11 +6,6 @@
     class Logic{
 
         function __construct(){
-            session_start();
-
-            $this->InitSession();
-
-            //VARIABLES
             $this->dbaccess = new DBAccess();
             $this->form = new Forms($this->dbaccess);
         }
@@ -20,8 +15,6 @@
             if (count($errors["response"]) > 0){
                 return $errors;
             }else{
-                $_SESSION["admin"] = $form["username"];
-                $_SESSION["current_page"] = "home_page";
                 return ["response" => "ok"];
             }
         }
@@ -31,26 +24,9 @@
             if (count($errors["response"]) > 0){
                 return $errors;
             }else{
-                $_SESSION["admin"] = $form["username"];
-                $_SESSION["current_page"] = "home_page";
                 return ["response" => "ok"];
             }
-        }
-
-        private function InitSession(){
-            if (!isset($_SESSION["current_page"])){
-                $_SESSION["current_page"] = "form_page";
-            }
-        }
-
-        public function GetCurrentPageSession(){
-            return $_SESSION["current_page"];
-        }
-        
-        private function CheckSession(){
-            
-        }
-
+        } 
     }
 
 ?>

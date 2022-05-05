@@ -15,10 +15,4 @@ class Middleware{
         })
     }
 
-    SendCurrentPageRequest(callback){
-        this.SendRequest("GET", null, this.url + "?current_page").then(json_data => {
-            callback(json_data)
-        })
-    }
 }
-
