@@ -12,6 +12,7 @@ class Logic{
     constructor(){
 
         this.url = "http://localhost/casa_editrice_web_app/client/";
+        //this.url = "http://192.168.1.66/casa_editrice_web_app/client/";
         this.middleware = new Middleware();
         
         this.InitSession()
@@ -19,8 +20,8 @@ class Logic{
     }
 
     InitSession(){
-        if (sessionStorage.getItem("current_page") === null){
-            sessionStorage.setItem("current_page" , "form_page")
+        if (sessionStorage.getItem("session") === null){
+            sessionStorage.setItem("session" , "false")
         }
     }
 
@@ -30,27 +31,21 @@ class Logic{
         })
     }
 
-    RemoveLoaderPage(){
+    /* RemoveLoaderPage(){
         document.querySelector(".first_panel_loader").style.display = "none"
-    }
+    } */
 
     Route(){
-        switch(sessionStorage.getItem("current_page")){
-            case "form_page":{
-                if (window.location.pathname != "/casa_editrice_web_app/client/form/"){
-                    window.location = this.url + "form/"
-                }else{
-                    this.RemoveLoaderPage()
-                }
-            } break;
-            case "home_page":{
-                if (window.location.pathname != "/casa_editrice_web_app/client/home/"){
-                    window.location = this.url + "home/"
-                }else{
-                    // add events
-                }
-            } break;
+        
+        if (window.location.pathname == "/casa_editrice_web_app/client/home/"){
+            if (sessionStorage.getItem("session") == "false"){
+                window.location = this.url + "form/"
+            }
+        }else if (window.location.pathname == "/casa_editrice_web_app/client/form/"){
+            if (sessionStorage.getItem("session") == "true"){
+                window.location = this.url + "home/"
+            }
         }
+        
     }
-
 }

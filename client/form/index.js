@@ -43,7 +43,7 @@ class Index extends Logic{
             if (json_data.password2) {document.querySelector(".password2_error").parentElement.querySelector(".text_input").style.boxShadow = "2px 2px 5px 0 rgb(203, 72, 72)";}
         
         }else{
-            sessionStorage.setItem("current_page", "home_page")
+            sessionStorage.setItem("session", "true")
             window.location = this.url + "home/";
         }
     }
