@@ -19,7 +19,7 @@ body{
     src: url("../FONTS/Nunito-MediumItalic.ttf");
 }
 
-.navbar, .navbar_div, .navbar_button_div, .navbar_div_rl_but, .left_navbar_button, .right_navbar_button, .close_navbar_div, .burger_menu, .div_logo, .div_logo_2, .main_div, .second_div, .third_div{
+.navbar, .navbar_div, .navbar_button_div, .navbar_div_rl_but, .left_navbar_button, .right_navbar_button, .close_navbar_div, .burger_menu, .div_logo, .div_logo_2, .main_div, .second_div{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -211,11 +211,4 @@ body{
     width: 100%;
     margin: 0%;
     text-align: start;
-}
-
-.third_div{
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    background-color: chartreuse;
 }
