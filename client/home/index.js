@@ -3,7 +3,7 @@ var index;
 window.onload = () => {
 
     index = new Index();
-   
+    
 }
 
 class Index extends Logic{
@@ -11,6 +11,9 @@ class Index extends Logic{
     constructor(){
         super()
         this.AddHomeEvents()
+
+        this.page_index = 0
+        this.option_index = 0
     }
 
     AddHomeEvents(){
@@ -26,6 +29,18 @@ class Index extends Logic{
         document.querySelector(".close_navbar_div").addEventListener("click", () => {
             document.querySelector(".navbar_div").classList.toggle("navbar_div_toggle")
         })
+        document.querySelectorAll(".navbar_button").forEach(ele => {ele.addEventListener("click", (e) => {this.SwitchPage(e)})})
     }
+
+    SwitchPage(e){
+        let num_page = e.target.value
+        let obj = document.createElement("object")
+        obj.type = 'text/html'
+        obj.data = './COMPONENTS/comp' + num_page + '.html'
+        obj.width = "100%"
+        obj.height = "100%"
+        document.querySelector(".second_div").innerHTML = "<h1 class='second_div_title'>" + e.target.name + "</h1>"
+        document.querySelector(".second_div").appendChild(obj)
+    }   
 
 }
