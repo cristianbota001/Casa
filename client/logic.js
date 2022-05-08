@@ -16,7 +16,7 @@ class Logic{
         this.middleware = new Middleware();
         
         this.InitSession()
-        this.AddWindowEvents()
+        //this.AddWindowEvents()
     }
 
     InitSession(){
