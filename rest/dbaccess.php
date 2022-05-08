@@ -18,6 +18,14 @@
             }
         }
 
+        private function SerializeQuery($query){
+            $value = [];
+            while ($row = mysqli_fetch_assoc($query)){
+                array_push($value, $row);
+            }
+            return $value;
+        }
+
         public function Authenticate($form){
             $ris = mysqli_query($this->conn, "SELECT * FROM amministratore WHERE amministratore.username = '". $form["username"] ."' AND amministratore.password = '". md5($form["password1"]) ."';");
             return $this->BooleanQuery($ris);
@@ -31,6 +39,11 @@
         public function AddNewAdmin($username, $password){
             $password = md5($password);
             mysqli_query($this->conn, "INSERT INTO amministratore (username, password) VALUES ('$username', '$password')");
+        }
+
+        public function GetBooks($parameters){
+            $query = mysqli_query($this->conn, "SELECT titolo, genere, anno, ISBN FROM catalogo_libri");
+            return $this->SerializeQuery($query);
         }
     }
 

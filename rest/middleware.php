@@ -22,7 +22,9 @@ class Middleware{
     }
 
     private function SwitchMethodGet(){
-        
+        if (isset($_GET["get_books"])){
+            $this->GetBooks();
+        }
     }
 
     private function SwitchMethodPost(){
@@ -43,6 +45,11 @@ class Middleware{
 
     private function RegistrationForm(){
         $value = $this->logic->ValidateRegistrationForm($_POST);
+        echo json_encode($value);
+    }
+
+    private function GetBooks(){
+        $value = $this->logic->GetBooks($_GET);
         echo json_encode($value);
     }
 

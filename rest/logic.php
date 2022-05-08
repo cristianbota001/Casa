@@ -27,6 +27,10 @@
                 return ["response" => "ok"];
             }
         } 
+
+        public function GetBooks($parameters){
+            return ["response" => $this->dbaccess->GetBooks($parameters)];
+        }
     }
 
 ?>

@@ -1,12 +1,14 @@
-var index;
+var form;
 
 window.onload = () => {
 
-    index = new Index();
+    form = new Form();
+    //form.InitSession()
+    //form.AddWindowEvents()
    
 }
 
-class Index extends Logic{
+class Form extends Logic{
     
     constructor(){
         super()
@@ -28,8 +30,8 @@ class Index extends Logic{
 
     SendFormData(e, id_form){
         e.preventDefault(); //rivedere
-        let form = new FormData(document.querySelector(id_form));
-        this.middleware.SendFormData(form, this.GestioneForm.bind(index));
+        let form_data = new FormData(document.querySelector(id_form));
+        this.middleware.SendFormData(form_data, this.GestioneForm.bind(form));
     }
 
     GestioneForm(json_data){
@@ -44,7 +46,7 @@ class Index extends Logic{
         
         }else{
             sessionStorage.setItem("session", "true")
-            window.location = this.url + "home/";
+            window.location = this.url + "/home.html";
         }
     }
 

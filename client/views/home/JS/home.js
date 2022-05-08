@@ -1,19 +1,18 @@
-var index;
+var home;
 
 window.onload = () => {
 
-    index = new Index();
+    home = new Home();
+    //home.InitSession()
+    //home.AddWindowEvents()
+    home.AddHomeEvents()
     
 }
 
-class Index extends Logic{
+class Home extends Logic{
 
     constructor(){
         super()
-        this.AddHomeEvents()
-
-        this.page_index = 0
-        this.option_index = 0
     }
 
     AddHomeEvents(){
@@ -36,11 +35,10 @@ class Index extends Logic{
         let num_page = e.target.value
         let obj = document.createElement("object")
         obj.type = 'text/html'
-        obj.data = './COMPONENTS/comp' + num_page + '.html'
+        obj.data = './COMPONENTS/comp' + num_page + '/comp' + num_page + '.html'
         obj.width = "100%"
         obj.height = "100%"
         document.querySelector(".second_div").innerHTML = "<h1 class='second_div_title'>" + e.target.name + "</h1>"
         document.querySelector(".second_div").appendChild(obj)
     }   
-
 }
