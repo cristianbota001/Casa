@@ -5,8 +5,6 @@ window.onload = () => {
 
     logic = new Logic();
 
-    
-   
 }
 
 class Logic{
@@ -16,9 +14,7 @@ class Logic{
         //this.url = "http://192.168.1.66/casa_editrice_web_app/client/";
         this.url = "http://localhost/casa_editrice_web_app/client/views";
         this.middleware = new Middleware();
-
-        console.log(window.location.pathname)
-        
+ 
     }
 
     InitSession(){

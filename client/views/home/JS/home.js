@@ -35,7 +35,7 @@ class Home extends Logic{
         let num_page = e.target.value
         let obj = document.createElement("object")
         obj.type = 'text/html'
-        obj.data = './COMPONENTS/comp' + num_page + '/comp' + num_page + '.html'
+        obj.data = './home/COMPONENTS/comp' + num_page + '.html'
         obj.width = "100%"
         obj.height = "100%"
         document.querySelector(".second_div").innerHTML = "<h1 class='second_div_title'>" + e.target.name + "</h1>"

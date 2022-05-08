@@ -6,7 +6,7 @@ window.onload = () => {
     
 }
 
-class Comp0 extends Logic{
+class Comp0 extends Home{
 
     constructor(){
         super()
