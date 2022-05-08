@@ -19,19 +19,16 @@ class Comp0 extends Home{
 
     GetTables(e){
         let num_option = e.target.value
-        
         switch (num_option){
             case "0" : {
-                this.middleware.GetBooksTable(this.PopulateTable)
+                this.middleware.GetBooksTable(this.PopulateTable.bind(comp0))
             }
         }
-        
     }
 
-    PopulateTable(){
-        let table = document.querySelector(".table")
-        table.innerHTML = "" 
-        
+    PopulateTable(json_data){
+        let table =  document.querySelector(".table")
+        table.innerHTML = ""
+        this.MakeTable(json_data, table)
     }
-
 }

@@ -41,4 +41,46 @@ class Home extends Logic{
         document.querySelector(".second_div").innerHTML = "<h1 class='second_div_title'>" + e.target.name + "</h1>"
         document.querySelector(".second_div").appendChild(obj)
     }   
+
+    GetHeader(row) {
+        let arr = []
+        for (const [key, value] of Object.entries(row)){
+            arr.push(key)
+        }
+        return arr
+    }
+
+    MakeTable(json_data, html_table){
+        let head = this.GetHeader(json_data[0])
+        let tr = document.createElement("tr")
+        
+        head.forEach(element => {
+            let th = document.createElement("th")
+            let div = document.createElement("div")
+            div.innerText = element
+            th.appendChild(div)
+            tr.appendChild(th)
+        })
+
+        html_table.appendChild(tr)
+
+        json_data.forEach(element => {
+            let tr = document.createElement("tr")
+            for (const [key, value] of Object.entries(element)){
+                let td = document.createElement("td")
+                let div = document.createElement("div")
+                
+                if (value == null){
+                    div.innerText = "NULL"
+                }else{
+                    div.innerText = value
+                }
+                 
+                td.appendChild(div)
+                tr.appendChild(td)
+            }
+            html_table.appendChild(tr)
+        })
+
+    }
 }
