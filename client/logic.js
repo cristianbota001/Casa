@@ -11,7 +11,7 @@ class Logic{
 
     constructor(){
         
-        //this.url = "http://192.168.1.66/casa_editrice_web_app/client/";
+        //this.url = "http://192.168.1.66/casa_editrice_web_app/client/views";
         this.url = "http://localhost/casa_editrice_web_app/client/views";
         this.middleware = new Middleware();
  

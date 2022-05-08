@@ -6,7 +6,7 @@ body{
     width: 100%;
     height: 100vh;
     margin: 0%;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 @font-face {
@@ -14,7 +14,7 @@ body{
     src: url("../FONTS/Poppins-Medium.ttf");
 }
 
-.third_div, .options_bar, .table_div{
+.third_div, .options_bar, .table_div, .table_div_main{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -25,14 +25,13 @@ body{
     width: 100%;
     height: 100%;
     flex-direction: column;
-    background-color: chartreuse;
+    overflow: hidden;
 }
 
 .options_bar{
     width: 100%;
-    height: 60px;
+    min-height: 60px;
     flex-direction: row;
-    background-color: chocolate;
 }
 
 .option_button{
@@ -45,12 +44,75 @@ body{
     outline: none;
     background-color: rgb(131, 131, 229);
     color: white;
+    transition: 0.2s;
     font-family: Poppins;
 }
 
-.table_div{
+.option_button:hover{
+    background-color: rgb(104, 104, 201);
+}
+
+.table_div_main{
+    background-color: rgb(139, 139, 209);
+    justify-content: center;
+    border-radius: 20px;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+}
+
+.table_div{
+    width: 98%;
+    height: 95%;
     overflow-x: auto;
-    background-color: darkslategray;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: auto;
+    margin: 10px;
+}
+
+.table{
+    width: 100%;
+    height: fit-content;
+    color: rgb(255, 255, 255);
+    font-family: Poppins;
+    overflow: hidden;
+}
+
+.table td div, .table th div, .table td div, .table th div{
+    text-align: start;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 200px;
+    width: 200px;
+    max-width: fit-content;
+    overflow: hidden;
+    resize: horizontal;
+    height: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 40px;
+    max-height: 40px;
+  }
+
+  ::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: rgb(159, 173, 221);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgb(84, 111, 197);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-corner{
+    background-color: transparent;
 }
