@@ -137,7 +137,7 @@ body{
         display: flex;
     }
     .navbar_div{
-        width: 90%;
+        min-width: 100%;
         min-height: 100%;
         flex-direction: column;
         flex-wrap: unset;

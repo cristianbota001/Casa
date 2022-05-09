@@ -1,3 +1,5 @@
 1) check htaccess meaning
 2) cambiare i colori
 3) nel visualizza tutto, quando non arrivano dati perche la tabella è vuota da errore (forse) e quando le tabelle sono vuote mettere il messaggio: scegliere un'opzione
+4) fare i loghi dei link
+5) quando si caricano le tabelle fare l'effetto css del caricamento

@@ -1,0 +1,181 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0%;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url("../FONTS/Poppins-Medium.ttf");
+}
+
+.third_div, .options_bar, .table_div, .table_div_main, .filter_menu_div, .filter_input_cont_div, .filter_input_cont_buttons{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.third_div{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.options_bar{
+    width: 100%;
+    min-height: 60px;
+    flex-direction: row;
+}
+
+.option_button, .filter_button{
+    min-width: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: rgb(131, 131, 229);
+    color: white;
+    transition: 0.2s;
+    font-family: Poppins;
+}
+
+.option_button:hover{
+    background-color: rgb(104, 104, 201);
+}
+
+.table_div_main{
+    background-color: rgb(139, 139, 209);
+    justify-content: center;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.table_div{
+    width: 98%;
+    height: 95%;
+    overflow-x: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: auto;
+    margin: 10px;
+}
+
+.table{
+    width: 100%;
+    height: fit-content;
+    color: rgb(255, 255, 255);
+    font-family: Poppins;
+    overflow: hidden;
+    border-collapse: collapse;
+    margin: 10px;
+    font-size: 13px;
+}
+
+.table td div, .table th div, .table td div, .table th div{
+    text-align: start;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 200px;
+    width: 200px;
+    max-width: fit-content;
+    overflow: hidden;
+    resize: horizontal;
+    height: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 20px;
+    max-height: 20px;
+  }
+
+.table tr:nth-child(2n + 1){
+    background-color: rgb(139, 139, 209);
+}   
+.table tr:nth-child(2n + 2){
+    background-color: rgb(103, 103, 170);
+}   
+
+::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: rgb(159, 173, 221);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgb(84, 111, 197);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-corner{
+    background-color: transparent;
+}
+
+.filter_menu_div{
+    border-radius: 20px;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    transform: translateX(-110%);
+    transition: ease-in-out 0.3s;
+    justify-content: center;
+    box-shadow: 2px 2px 5px 0 rgb(38, 38, 38);
+    background-color: rgb(102, 102, 179);
+}
+
+.filter_menu_div_toggle{
+    transform: translate(0%);
+}
+
+.filter_input_cont_div{
+    width: 95%;
+    height: 95%;
+    overflow-y: auto;
+    margin: 10px;
+}
+
+.text_input{
+    min-width: 90%;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+    padding: 13px;
+    color: rgb(0, 0, 0);
+    font-family: Poppins;
+    font-size: 12px;
+    background-color: rgba(241, 241, 241, 0.87);
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.filter_input_cont_buttons{
+    min-width: 90%;
+    flex-direction: row;
+    height: fit-content;
+}
+
+.filter_button{
+    background-color: white;
+    color: rgb(92, 92, 198);
+}
+
+.filter_button:hover{
+    background-color: rgb(216, 216, 251);
