@@ -17,7 +17,13 @@ class Middleware{
     }
 
     GetBooksTable(callback){
-        this.SendRequest("GET", null, this.url + "?get_books=[]").then(json_data => {
+        this.SendRequest("GET", null, this.url + "?get_books").then(json_data => {
+            callback(json_data["response"]);
+        })
+    }
+
+    GetAuthorsTable(callback){
+        this.SendRequest("GET", null, this.url + "?get_authors").then(json_data => {
             callback(json_data["response"]);
         })
     }

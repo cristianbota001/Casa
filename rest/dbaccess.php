@@ -41,8 +41,13 @@
             mysqli_query($this->conn, "INSERT INTO amministratore (username, password) VALUES ('$username', '$password')");
         }
 
-        public function GetBooks($parameters){
+        public function GetBooks(){
             $query = mysqli_query($this->conn, "SELECT titolo, genere, anno, ISBN FROM catalogo_libri");
+            return $this->SerializeQuery($query);
+        }
+
+        public function GetAuthors(){
+            $query = mysqli_query($this->conn, "SELECT nome, cognome, data_nascita, stato_provenienza FROM autore");
             return $this->SerializeQuery($query);
         }
     }

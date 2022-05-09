@@ -25,6 +25,9 @@ class Middleware{
         if (isset($_GET["get_books"])){
             $this->GetBooks();
         }
+        else if (isset($_GET["get_authors"])){
+            $this->GetAuthors();
+        }
     }
 
     private function SwitchMethodPost(){
@@ -49,7 +52,12 @@ class Middleware{
     }
 
     private function GetBooks(){
-        $value = $this->logic->GetBooks($_GET);
+        $value = $this->logic->GetBooks();
+        echo json_encode($value);
+    }
+
+    private function GetAuthors(){
+        $value = $this->logic->GetAuthors();
         echo json_encode($value);
     }
 

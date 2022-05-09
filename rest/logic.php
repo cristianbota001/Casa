@@ -28,8 +28,12 @@
             }
         } 
 
-        public function GetBooks($parameters){
-            return ["response" => $this->dbaccess->GetBooks($parameters)];
+        public function GetBooks(){
+            return ["response" => $this->dbaccess->GetBooks()];
+        }
+
+        public function GetAuthors(){
+            return ["response" => $this->dbaccess->GetAuthors()];
         }
     }
 

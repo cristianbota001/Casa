@@ -22,6 +22,9 @@ class Comp0 extends Home{
         switch (num_option){
             case "0" : {
                 this.middleware.GetBooksTable(this.PopulateTable.bind(comp0))
+            } break;
+            case "1" : {
+                this.middleware.GetAuthorsTable(this.PopulateTable.bind(comp0))
             }
         }
     }
