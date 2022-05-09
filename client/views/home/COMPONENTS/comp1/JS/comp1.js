@@ -17,6 +17,9 @@ class Comp1 extends Home{
         document.querySelector(".option_button").addEventListener("click", () => {
             document.querySelector(".filter_menu_div").classList.toggle("filter_menu_div_toggle")
         })
+        document.querySelector("#filter_annulla").addEventListener("click", () => {
+            document.querySelector(".filter_menu_div").classList.toggle("filter_menu_div_toggle")
+        })
     }
 
 }

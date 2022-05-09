@@ -179,3 +179,14 @@ body{
 
 .filter_button:hover{
     background-color: rgb(216, 216, 251);
+}
+
+#filter_annulla{
+    color: rgb(198, 92, 92);
+}
+
+@media screen and (max-width : 768px) {
+    .filter_menu_div{
+        width: 100%;
+    }
+}
