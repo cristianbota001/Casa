@@ -35,6 +35,10 @@
         public function GetAuthors(){
             return ["response" => $this->dbaccess->GetAuthors()];
         }
+
+        public function GetBooksWithFilter($parameters){
+            return ["response" => $this->dbaccess->GetBooksWithFilter(json_decode($parameters, true))]; // per avere un array
+        }
     }
 
 ?>

@@ -50,6 +50,11 @@
             $query = mysqli_query($this->conn, "SELECT nome, cognome, data_nascita, stato_provenienza FROM autore");
             return $this->SerializeQuery($query);
         }
+
+        public function GetBooksWithFilter($parameters){
+            $query = mysqli_query($this->conn, "SELECT titolo, genere, anno, ISBN FROM catalogo_libri NATURAL JOIN autore WHERE (autore.nome = '". $parameters["author_name"] ."' OR '". $parameters["author_name"] ."' IS NULL) AND (autore.nome = '". $parameters["author_surname"] ."')");
+            return $this->SerializeQuery($query);
+        }
     }
 
 ?>

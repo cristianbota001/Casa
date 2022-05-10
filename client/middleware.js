@@ -7,7 +7,7 @@ class Middleware{
 
     async SendRequest(method, body, url){
         let ris = await fetch(url, {method : method, body:body})
-        return ris.json()
+        return ris.text()
     }
 
     SendFormData(body, callback){
@@ -25,6 +25,13 @@ class Middleware{
     GetAuthorsTable(callback){
         this.SendRequest("GET", null, this.url + "?get_authors").then(json_data => {
             callback(json_data["response"]);
+        })
+    }
+
+    GetBooksWithFilter(parameters, callback){
+        this.SendRequest("GET", null, this.url + "?get_books_filter=" + parameters).then(json_data => {
+            //callback(json_data["response"]);
+            console.log(json_data)
         })
     }
 
