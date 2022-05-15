@@ -27,7 +27,13 @@ class Comp1 extends Home{
     }
 
     GetBooksWithFilter(){
-        this.middleware.GetBooksWithFilter(this.GetParameters(), this.MakeTable.bind(comp1))
+        this.middleware.GetBooksWithFilter(this.GetParameters(), this.PopulateTable.bind(comp1))
+    }
+
+    PopulateTable(json_data){
+        let table =  document.querySelector(".table")
+        table.innerHTML = ""
+        this.MakeTable(json_data, table)
     }
 
     GetParameters(){
@@ -36,7 +42,7 @@ class Comp1 extends Home{
             if (ele.value.replace(/\s/g, "") != ""){
                 param[ele.getAttribute("name")] = ele.value
             }else{
-                param[ele.getAttribute("name")] = null
+                param[ele.getAttribute("name")] = "NULL"
             }
         })
        return JSON.stringify(param);

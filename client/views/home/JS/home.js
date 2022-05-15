@@ -51,6 +51,11 @@ class Home extends Logic{
     }
 
     MakeTable(json_data, html_table){
+
+        if (json_data.length == 0){
+            return 0
+        }
+
         let head = this.GetHeader(json_data[0])
         let tr = document.createElement("tr")
         
