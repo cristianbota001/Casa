@@ -22,7 +22,7 @@ class Comp1 extends Home{
         })
         document.querySelector("#filter_invia").addEventListener("click", (e) => {
             this.GetBooksWithFilter()
-            /* document.querySelector(".filter_menu_div").classList.toggle("filter_menu_div_toggle") */
+            document.querySelector(".filter_menu_div").classList.toggle("filter_menu_div_toggle")
         })
     }
 

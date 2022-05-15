@@ -1,0 +1,123 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0%;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url("../FONTS/Poppins-Medium.ttf");
+}
+
+.third_div, .options_bar, .add_info_form_1, .add_info_form_2, .select_cont_div{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.third_div{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.options_bar{
+    width: 100%;
+    min-height: 60px;
+    flex-direction: row;
+}
+
+.option_button, .save_button{
+    min-width: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: rgb(131, 131, 229);
+    color: white;
+    transition: 0.2s;
+    font-family: Poppins;
+}
+
+.option_button:hover{
+    background-color: rgb(104, 104, 201);
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: rgb(159, 173, 221);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgb(84, 111, 197);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-corner{
+    background-color: transparent;
+}
+
+.text_input, .select_author{
+    min-width: 90%;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+    padding: 13px;
+    color: rgb(0, 0, 0);
+    font-family: Poppins;
+    font-size: 12px;
+    background-color: rgba(241, 241, 241, 0.87);
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.text_input{
+    margin-top: 10px;
+}
+
+.add_info_form_1, .add_info_form_2{
+    background-color: rgb(139, 139, 209);
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    overflow-y: auto;
+}
+.add_info_form_2{
+    display: none;
+}
+
+.select_author{
+    min-width: 20%;
+    margin-right: 20px;
+}
+
+.select_cont_div{
+    width: 90%;
+    align-items: flex-start;
+    height: fit-content;
+    flex-direction: row;
+}
+
+.save_button{
+    background-color: rgb(73, 52, 70);
+}
+
+.save_button:hover{
+    background-color: rgb(120, 87, 115);
+}
