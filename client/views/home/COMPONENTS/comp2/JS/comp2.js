@@ -40,14 +40,24 @@ class Comp2 extends Home{
         })
     }
 
+    ClearInputTexts(){
+        document.querySelectorAll(".text_input").forEach(ele => {ele.value = ""})
+    }
+
     SaveToDB(e){
         e.preventDefault()
         if (this.num_option == "0"){
             let form_data = new FormData(document.querySelector(".add_info_form_1"))
-            this.middleware.SaveNewBook(form_data, (json_data) => {console.log(json_data)})
+            this.middleware.SaveNewBook(form_data, this.ResponseAfterSave.bind(comp2))
         }else{
             let form_data = new FormData(document.querySelector(".add_info_form_2"))
 
+        }
+    }
+
+    ResponseAfterSave(response){
+        if (response == "ok"){
+            this.ClearInputTexts()
         }
     }
 

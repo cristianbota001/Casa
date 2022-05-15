@@ -41,7 +41,11 @@
         }
 
         public function SaveNewBook($form){
-            return ["response" => $this->dbaccess->SaveNewBook($form)]; // per avere un array
+            if ($form["title"] != "" && $form["genre"] != "" && $form["year"] != "" && $form["isbn"] != "" && $form["author"] != ""){
+                return ["response" => $this->dbaccess->SaveNewBook($form)];
+            }else{
+                return ["response" => "nok"];
+            }
         }
 
     }
