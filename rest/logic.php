@@ -39,6 +39,11 @@
         public function GetBooksWithFilter($parameters){
             return ["response" => $this->dbaccess->GetBooksWithFilter(json_decode($parameters, true))]; // per avere un array
         }
+
+        public function SaveNewBook($form){
+            return ["response" => $this->dbaccess->SaveNewBook($form)]; // per avere un array
+        }
+
     }
 
 ?>

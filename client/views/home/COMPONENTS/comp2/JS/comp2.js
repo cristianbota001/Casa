@@ -17,6 +17,7 @@ class Comp2 extends Home{
 
     AddEvents(){
         document.querySelectorAll(".option_button").forEach(ele => ele.addEventListener("click", (e) => {this.SwitchForm(e.target.value)}))
+        document.querySelector(".save_button").addEventListener("click", (e) => {this.SaveToDB(e)})
     }
 
     SwitchForm(num_option){
@@ -37,6 +38,17 @@ class Comp2 extends Home{
             opt.innerText = ele.nome + " " + ele.cognome
             document.querySelector(".select_author").appendChild(opt)
         })
+    }
+
+    SaveToDB(e){
+        e.preventDefault()
+        if (this.num_option == "0"){
+            let form_data = new FormData(document.querySelector(".add_info_form_1"))
+            this.middleware.SaveNewBook(form_data, (json_data) => {console.log(json_data)})
+        }else{
+            let form_data = new FormData(document.querySelector(".add_info_form_2"))
+
+        }
     }
 
 }

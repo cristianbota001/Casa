@@ -34,4 +34,8 @@ class Middleware{
         })
     }
 
+    SaveNewBook(body, callback){
+        this.SendFormData(body, callback)
+    }
+
 }
