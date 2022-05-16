@@ -39,9 +39,14 @@ class Middleware{
         }
         else if (isset($_POST["username"]) && isset($_POST["password1"])){
             $this->LoginForm();
-        }else if (isset($_POST["title"]) && isset($_POST["genre"]) && isset($_POST["year"]) && isset($_POST["isbn"]) && isset($_POST["author"])){
+        }
+        else if (isset($_POST["title"]) && isset($_POST["genre"]) && isset($_POST["year"]) && isset($_POST["isbn"]) && isset($_POST["author"])){
             $this->SaveNewBook();
-        }else{
+        }
+        else if(isset($_POST["name"]) && isset($_POST["surname"]) && isset($_POST["dateb"]) && isset($_POST["nation"])){
+            $this->SaveNewAuthor();
+        }
+        else{
             //forbidden response 403
         }
     }
@@ -73,6 +78,11 @@ class Middleware{
 
     private function SaveNewBook(){
         $value = $this->logic->SaveNewBook($_POST);
+        echo json_encode($value);
+    }
+
+    private function SaveNewAuthor(){
+        $value = $this->logic->SaveNewAuthor($_POST);
         echo json_encode($value);
     }
 

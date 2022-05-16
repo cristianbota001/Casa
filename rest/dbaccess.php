@@ -60,10 +60,24 @@
             $query = mysqli_query($this->conn, "SELECT catalogo_libri.* FROM catalogo_libri NATURAL JOIN autore WHERE titolo = '". $form["title"] ."' AND genere = '". $form["genre"] ."' AND anno = '". $form["year"] ."' AND isbn = '". $form["isbn"] ."' AND id_autore = '". $form["author"] ."'");
             return $this->BooleanQuery($query);
         }
+
+        private function CheckIfAuthorExists($form){
+            $query = mysqli_query($this->conn, "SELECT autore.* FROM autore WHERE nome = '". $form["name"] ."' AND cognome = '". $form["surname"] ."' AND data_nascita = '". $form["dateb"] ."' AND stato_provenienza = '". $form["nation"] ."'");
+            return $this->BooleanQuery($query);
+        }
         
         public function SaveNewBook($form){
             if (!$this->CheckIfBookExists($form)){
-                $query = mysqli_query($this->conn, "INSERT INTO catalogo_libri(id_autore, titolo, genere, anno, ISBN) VALUES('". $form["author"] ."','". $form["title"] ."','". $form["genre"] ."','". $form["year"] ."','". $form["isbn"] ."')");
+                mysqli_query($this->conn, "INSERT INTO catalogo_libri(id_autore, titolo, genere, anno, ISBN) VALUES('". $form["author"] ."','". $form["title"] ."','". $form["genre"] ."','". $form["year"] ."','". $form["isbn"] ."')");
+                return "ok";
+            }else{
+                return "nok";
+            }
+        }
+
+        public function SaveNewAuthor($form){
+            if (!$this->CheckIfAuthorExists($form)){
+                mysqli_query($this->conn, "INSERT INTO autore(nome, cognome, data_nascita, stato_provenienza) VALUES('". $form["name"] ."','". $form["surname"] ."','". $form["dateb"] ."','". $form["nation"] ."')");
                 return "ok";
             }else{
                 return "nok";

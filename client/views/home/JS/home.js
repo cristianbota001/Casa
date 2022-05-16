@@ -32,6 +32,7 @@ class Home extends Logic{
     }
 
     SwitchPage(e){
+        document.querySelector(".navbar_div").classList.toggle("navbar_div_toggle")
         let num_page = e.target.value
         let obj = document.createElement("object")
         obj.type = 'text/html'

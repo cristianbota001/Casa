@@ -48,6 +48,14 @@
             }
         }
 
+        public function SaveNewAuthor($form){
+            if ($form["name"] != "" && $form["surname"] != "" && $form["dateb"] != "" && $form["nation"] != ""){
+                return ["response" => $this->dbaccess->SaveNewAuthor($form)];
+            }else{
+                return ["response" => "nok"];
+            }
+        }
+
     }
 
 ?>

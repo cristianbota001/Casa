@@ -14,7 +14,7 @@ body{
     src: url("../FONTS/Poppins-Medium.ttf");
 }
 
-.third_div, .options_bar, .add_info_form_1, .add_info_form_2, .select_cont_div, .add_info_div, .result_after_save{
+.third_div, .options_bar, .main_page, .page_1, .page_2, .isbn_input_cont, .modify_cont_div{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -28,13 +28,7 @@ body{
     overflow: hidden;
 }
 
-.options_bar{
-    width: 100%;
-    min-height: 60px;
-    flex-direction: row;
-}
-
-.add_info_div{
+.main_page{
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -42,7 +36,13 @@ body{
     border-radius: 20px;
 }
 
-.option_button, .save_button{
+.options_bar{
+    width: 100%;
+    min-height: 60px;
+    flex-direction: row;
+}
+
+.option_button, .search_button, .modify_button{
     min-width: 150px;
     padding: 10px;
     border-radius: 10px;
@@ -54,6 +54,13 @@ body{
     color: white;
     transition: 0.2s;
     font-family: Poppins;
+}
+.search_button, .modify_button{
+    background-color: rgb(73, 52, 70);
+}
+
+.search_button:hover, .modify_button:hover{
+    background-color: rgb(120, 87, 115);
 }
 
 .option_button:hover{
@@ -79,7 +86,7 @@ body{
     background-color: transparent;
 }
 
-.text_input, .select_author{
+.text_input{
     min-width: 90%;
     border: none;
     outline: none;
@@ -97,7 +104,7 @@ body{
     margin-top: 10px;
 }
 
-.add_info_form_1, .add_info_form_2{
+.page_1, .page_2{
     width: 98%;
     height: 95%;
     overflow: auto;
@@ -105,36 +112,35 @@ body{
     overflow-y: auto;
     margin: 10px;
 }
-.add_info_form_2{
+.page_2{
     display: none;
 }
 
-.select_author{
-    min-width: 20%;
+#isbn_text_input, #id_author_text_input{
+    min-width: 40%;
     margin: 0%;
-    margin-right: 15px;
 }
 
-.select_cont_div{
-    width: 90%;
-    align-items: center;
+.mini_form, .modify_cont_div{
+    min-width: 90%;
     height: fit-content;
+    margin-bottom: 30px;
     flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.save_button{
-    background-color: rgb(73, 52, 70);
-}
-
-.save_button:hover{
-    background-color: rgb(120, 87, 115);
-}
-
-.result_after_save{
-    font-family: Poppins;
-    color: rgb(72, 36, 66);
-    width: fit-content;
-    min-height: 100%;
+.modify_cont_div{
     margin: 0%;
-    justify-content: center;
+}
+
+.search_button{
+    margin: 0%;
+    margin-left: 20px;
+}
+
+.authors_form, .books_form{
+    width: 90%;
+    height: fit-content;
+    margin: 0%;
 }

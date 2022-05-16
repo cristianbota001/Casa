@@ -38,4 +38,9 @@ class Middleware{
         this.SendFormData(body, callback)
     }
 
+    SaveNewAuthor(body, callback){
+        this.SendFormData(body, callback)
+    }
+
+
 }
