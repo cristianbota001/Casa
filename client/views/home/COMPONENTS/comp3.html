@@ -14,23 +14,27 @@
             </div>
             <div class="main_page">
                 <div class="page_1">
-                    <form class="mini_form">
-                        <input type="text" placeholder="ISBN" class="text_input" id="isbn_text_input" name="isbn">
+                    <form class="mini_form_1">
+                        <input type="text" placeholder="ID Libro" class="text_input" id="id_book_text_input" name="id_book">
                         <input type="submit" value="Cerca libro" class="search_button">
+                        <p value = "0" class="result_after_save"></p>
                     </form>
                     <form method="put" class="books_form">
+                        <input type="text" placeholder="ISBN" class="text_input" name="isbn">
                         <input type="text" placeholder="Titolo" class="text_input" name="title">
                         <input type="text" placeholder="Genere" class="text_input" name="genre"> 
                         <input type="text" placeholder="Anno" class="text_input" name="year">
                         <div class="modify_cont_div">
                             <input type="submit" value="Modifica" class="modify_button">
+                            <p value = "1" class="result_after_save"></p>
                         </div>
                     </form>
                 </div>
                 <div class="page_2">
-                    <form class="mini_form">
+                    <form class="mini_form_2">
                         <input type="text" placeholder="ID Autore" class="text_input" id="id_author_text_input" name="id_author">
                         <input type="submit" value="Cerca autore" class="search_button">
+                        <p value = "2" class="result_after_save"></p>
                     </form>
                     <form method="put" class="authors_form">
                         <input type="text" placeholder="Nome" class="text_input" name="name">
@@ -39,6 +43,7 @@
                         <input type="text" placeholder="Stato provenienza" class="text_input" name="nation">
                         <div class="modify_cont_div">
                             <input type="submit" value="Modifica" class="modify_button">
+                            <p value = "3" class="result_after_save"></p>
                         </div>
                     </form>
                 </div>

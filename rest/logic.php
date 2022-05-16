@@ -56,6 +56,14 @@
             }
         }
 
+        public function GetBookFromIDBook($id_book){
+            if ($id_book != ""){
+                return ["response" => $this->dbaccess->GetBookFromIDBook($id_book)];
+            }else{
+                return ["response" => "nok"];
+            }
+        }
+
     }
 
 ?>

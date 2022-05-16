@@ -42,5 +42,10 @@ class Middleware{
         this.SendFormData(body, callback)
     }
 
+    GetBookFromIDBook(id_book, callback){
+        this.SendRequest("GET", null, this.url + "?get_book_from_id_book=" + id_book).then(json_data => {
+            callback(json_data["response"]);
+        })
+    }
 
 }

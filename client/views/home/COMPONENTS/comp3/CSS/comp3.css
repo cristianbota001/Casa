@@ -14,7 +14,7 @@ body{
     src: url("../FONTS/Poppins-Medium.ttf");
 }
 
-.third_div, .options_bar, .main_page, .page_1, .page_2, .isbn_input_cont, .modify_cont_div{
+.third_div, .options_bar, .main_page, .page_1, .page_2, .isbn_input_cont, .modify_cont_div, .mini_form_1, .mini_form_2{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -116,12 +116,12 @@ body{
     display: none;
 }
 
-#isbn_text_input, #id_author_text_input{
+#id_book_text_input, #id_author_text_input{
     min-width: 40%;
     margin: 0%;
 }
 
-.mini_form, .modify_cont_div{
+.mini_form_1, .mini_form_2, .modify_cont_div{
     min-width: 90%;
     height: fit-content;
     margin-bottom: 30px;
@@ -134,6 +134,10 @@ body{
     margin: 0%;
 }
 
+.modify_button{
+    margin: 0%;
+}
+
 .search_button{
     margin: 0%;
     margin-left: 20px;
@@ -143,4 +147,15 @@ body{
     width: 90%;
     height: fit-content;
     margin: 0%;
+}
+
+.result_after_save{
+    font-family: Poppins;
+    color: rgb(72, 36, 66);
+    max-width: fit-content;
+    max-height: fit-content;
+    margin: 0%;
+    justify-content: center;
+    display: flex;
+    margin-left: 20px;
 }
