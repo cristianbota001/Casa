@@ -21,13 +21,29 @@ class Comp3 extends Home{
 
     SwitchPage(num_option){
         if (num_option == 0){
-            document.querySelector(".page_1").style.display = "flex"
-            document.querySelector(".page_2").style.display = "none"
+            this.SwitchBookPage()
         }else{
-            document.querySelector(".page_1").style.display = "none"
-            document.querySelector(".page_2").style.display = "flex"
+            this.SwitchAuthorPage()
         }
         this.num_option = num_option
+    }
+
+    SwitchBookPage(){
+        document.querySelector("#mini_form_text_input").setAttribute("placeholder", "ID Libro")
+        let text_inputs = document.querySelectorAll(".text_input")
+        this.SwitchAttributes(text_inputs[0], "title", "Titolo")
+        this.SwitchAttributes(text_inputs[1], "genre", "Genere")
+        this.SwitchAttributes(text_inputs[2], "year", "Anno")
+        this.SwitchAttributes(text_inputs[3], "isbn", "ISBN")
+    }
+
+    SwitchAuthorPage(){
+       
+    }
+
+    SwitchAttributes(element, name, placeholder){
+        element.setAttribute("placeholder", placeholder)
+        element.setAttribute("name", name)
     }
 
     SendSearch(e){

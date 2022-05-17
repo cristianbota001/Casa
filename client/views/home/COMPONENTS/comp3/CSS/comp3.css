@@ -14,7 +14,7 @@ body{
     src: url("../FONTS/Poppins-Medium.ttf");
 }
 
-.third_div, .options_bar, .main_page, .page_1, .page_2, .isbn_input_cont, .modify_cont_div, .mini_form_1, .mini_form_2{
+.third_div, .options_bar, .main_page, .page, .modify_cont_div, .mini_form{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -42,7 +42,7 @@ body{
     flex-direction: row;
 }
 
-.option_button, .search_button, .modify_button{
+.option_button, .search_button, .modify_button, .remove_button{
     min-width: 150px;
     padding: 10px;
     border-radius: 10px;
@@ -55,11 +55,11 @@ body{
     transition: 0.2s;
     font-family: Poppins;
 }
-.search_button, .modify_button{
+.search_button, .modify_button, .remove_button{
     background-color: rgb(73, 52, 70);
 }
 
-.search_button:hover, .modify_button:hover{
+.search_button:hover, .modify_button:hover, .remove_button:hover{
     background-color: rgb(120, 87, 115);
 }
 
@@ -86,7 +86,7 @@ body{
     background-color: transparent;
 }
 
-.text_input{
+.text_input, #mini_form_text_input{
     min-width: 90%;
     border: none;
     outline: none;
@@ -104,7 +104,7 @@ body{
     margin-top: 10px;
 }
 
-.page_1, .page_2{
+.page{
     width: 98%;
     height: 95%;
     overflow: auto;
@@ -112,16 +112,13 @@ body{
     overflow-y: auto;
     margin: 10px;
 }
-.page_2{
-    display: none;
-}
 
-#id_book_text_input, #id_author_text_input{
+#mini_form_text_input{
     min-width: 40%;
     margin: 0%;
 }
 
-.mini_form_1, .mini_form_2, .modify_cont_div{
+.mini_form, .modify_cont_div{
     min-width: 90%;
     height: fit-content;
     margin-bottom: 30px;
@@ -136,6 +133,7 @@ body{
 
 .modify_button{
     margin: 0%;
+    margin-right: 15px;
 }
 
 .search_button{
@@ -143,7 +141,7 @@ body{
     margin-left: 20px;
 }
 
-.authors_form, .books_form{
+.main_form{
     width: 90%;
     height: fit-content;
     margin: 0%;
