@@ -26,6 +26,7 @@ class Comp3 extends Home{
             this.SwitchAuthorPage()
         }
         this.CleanAllPage()
+        this.CleanMiniForm()
         this.num_option = num_option
     }
 
@@ -82,6 +83,10 @@ class Comp3 extends Home{
             ele.value = ""
         })
         document.querySelector(".result_after_save[value='0']").innerText = ""
+    }
+
+    CleanMiniForm(){
+        document.querySelector("#mini_form_text_input").value = ""
     }
 
 }
