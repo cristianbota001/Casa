@@ -91,6 +91,8 @@ body{
     background-color: rgba(241, 241, 241, 0.87);
     border-radius: 20px;
     margin-bottom: 20px;
+    min-height: 45px;
+    max-height: 45px;
 }
 
 .text_input{
