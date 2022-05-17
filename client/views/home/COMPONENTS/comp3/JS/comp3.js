@@ -25,6 +25,7 @@ class Comp3 extends Home{
         }else{
             this.SwitchAuthorPage()
         }
+        this.CleanAllPage()
         this.num_option = num_option
     }
 
@@ -38,7 +39,12 @@ class Comp3 extends Home{
     }
 
     SwitchAuthorPage(){
-       
+        document.querySelector("#mini_form_text_input").setAttribute("placeholder", "ID Autore")
+        let text_inputs = document.querySelectorAll(".text_input")
+        this.SwitchAttributes(text_inputs[0], "name", "Nome")
+        this.SwitchAttributes(text_inputs[1], "surname", "Cognome")
+        this.SwitchAttributes(text_inputs[2], "dateb", "Data nascita")
+        this.SwitchAttributes(text_inputs[3], "nation", "Stato provenienza")
     }
 
     SwitchAttributes(element, name, placeholder){
@@ -48,36 +54,34 @@ class Comp3 extends Home{
 
     SendSearch(e){
         e.preventDefault()
+        this.CleanAllPage()
+        let the_id = document.querySelector("#mini_form_text_input").value
         if (this.num_option == 0){
-            let id_book = document.querySelector("#id_book_text_input").value
-            this.middleware.GetBookFromIDBook(id_book, this.ResponseFromBooks.bind(comp3))
+            this.middleware.GetBookFromIDBook(the_id, this.ResponseFrom)
         }else{
-            let id_author = document.querySelector("#id_author_text_input").value
-            this.middleware.GetAuthorFromIDAuthor(id_author, this.ResponseFromAuthors.bind(comp3))
+            this.middleware.GetAuthorFromIDAuthor(the_id, this.ResponseFrom)
         }
     }
 
-    ResponseFromBooks(json_data){
+    ResponseFrom(json_data){
         if (json_data !== "nok"){
-            document.querySelector(".text_input[name='isbn']").value = json_data.ISBN
-            document.querySelector(".text_input[name='title']").value = json_data.titolo
-            document.querySelector(".text_input[name='genre']").value = json_data.genere
-            document.querySelector(".text_input[name='year']").value = json_data.anno
+            let text_inputs = document.querySelectorAll(".text_input"), cont = 0;
+            for (const [key, value] of Object.entries(json_data)){
+                text_inputs[cont].value = value
+                cont++
+            }
             document.querySelector(".result_after_save[value='0']").innerText = ""
         }else{
             document.querySelector(".result_after_save[value='0']").innerText = "Libro non trovato"
         }
     }
 
-    ResponseFromAuthors(json_data){
-        if (json_data !== "nok"){
-            document.querySelector(".text_input[name='name']").value = json_data.nome
-            document.querySelector(".text_input[name='surname']").value = json_data.cognome
-            document.querySelector(".text_input[name='dateb']").value = json_data.data_nascita
-            document.querySelector(".text_input[name='nation']").value = json_data.stato_provenienza
-            document.querySelector(".result_after_save[value='0']").innerText = ""
-        }else{
-            document.querySelector(".result_after_save[value='2']").innerText = "Autore non trovato"
-        }
+    CleanAllPage(){
+        let text_inputs = document.querySelectorAll(".text_input")
+        text_inputs.forEach(ele => {
+            ele.value = ""
+        })
+        document.querySelector(".result_after_save[value='0']").innerText = ""
     }
+
 }
