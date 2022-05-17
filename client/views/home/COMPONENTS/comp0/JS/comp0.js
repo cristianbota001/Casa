@@ -3,6 +3,7 @@ var comp0;
 window.onload = () => {
 
     comp0 = new Comp0();
+    comp0.GetTables("0")
     
 }
 
@@ -14,11 +15,10 @@ class Comp0 extends Home{
     }
 
     AddButtonsEvents(){
-        document.querySelectorAll(".option_button").forEach(ele => ele.addEventListener("click", (e) => {this.GetTables(e)}))
+        document.querySelectorAll(".option_button").forEach(ele => ele.addEventListener("click", (e) => {this.GetTables(e.target.value)}))
     }
 
-    GetTables(e){
-        let num_option = e.target.value
+    GetTables(num_option){
         switch (num_option){
             case "0" : {
                 this.middleware.GetBooksTable(this.PopulateTable.bind(comp0))
