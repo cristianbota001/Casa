@@ -37,6 +37,9 @@ class Middleware{
         else if (isset($_GET["get_author_from_id_author"])){
             $this->GetAuthorFromIDAuthor();
         }
+        else{
+            //forbidden response 403
+        }
     }
 
     private function SwitchMethodPost(){
