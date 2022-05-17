@@ -1,7 +1,8 @@
 class Middleware{
 
     constructor(){
-        this.url = "http://localhost/casa_editrice_web_app/rest/middleware.php";
+        //this.url = "http://localhost/casa_editrice_web_app/rest/middleware.php";
+        this.url = "http://localhost:8080/casa_editrice_web_app/rest/middleware.php";
         //this.url = "http://192.168.1.66/casa_editrice_web_app/rest/middleware.php";
     }
 
@@ -44,6 +45,12 @@ class Middleware{
 
     GetBookFromIDBook(id_book, callback){
         this.SendRequest("GET", null, this.url + "?get_book_from_id_book=" + id_book).then(json_data => {
+            callback(json_data["response"]);
+        })
+    }
+
+    GetAuthorFromIDAuthor(id_author, callback){
+        this.SendRequest("GET", null, this.url + "?get_author_from_id_author=" + id_author).then(json_data => {
             callback(json_data["response"]);
         })
     }

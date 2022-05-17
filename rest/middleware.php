@@ -34,6 +34,9 @@ class Middleware{
         else if (isset($_GET["get_book_from_id_book"])){
             $this->GetBookFromIDBook();
         }
+        else if (isset($_GET["get_author_from_id_author"])){
+            $this->GetAuthorFromIDAuthor();
+        }
     }
 
     private function SwitchMethodPost(){
@@ -91,6 +94,11 @@ class Middleware{
 
     private function GetBookFromIDBook(){
         $value = $this->logic->GetBookFromIDBook($_GET["get_book_from_id_book"]);
+        echo json_encode($value);
+    }
+
+    private function GetAuthorFromIDAuthor(){
+        $value = $this->logic->GetAuthorFromIDAuthor($_GET["get_author_from_id_author"]);
         echo json_encode($value);
     }
 

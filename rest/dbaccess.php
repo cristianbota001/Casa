@@ -92,6 +92,15 @@
                 return "nok";
             }
         }
+
+        public function GetAuthorFromIDAuthor($id_author){
+            $query = mysqli_query($this->conn, "SELECT nome, cognome, data_nascita, stato_provenienza FROM autore WHERE id_autore = '$id_author'" );
+            if ($this->BooleanQuery($query)){
+                return $this->SerializeQuery($query)[0];
+            }else{
+                return "nok";
+            }
+        }
     }
 
 ?>

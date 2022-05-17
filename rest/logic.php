@@ -64,6 +64,14 @@
             }
         }
 
+        public function GetAuthorFromIDAuthor($id_author){
+            if ($id_author != ""){
+                return ["response" => $this->dbaccess->GetAuthorFromIDAuthor($id_author)];
+            }else{
+                return ["response" => "nok"];
+            }
+        }
+
     }
 
 ?>

@@ -33,8 +33,11 @@ class Comp3 extends Home{
     SendSearch(e){
         e.preventDefault()
         if (this.num_option == 0){
-            let isbn = document.querySelector("#id_book_text_input").value
-            this.middleware.GetBookFromIDBook(isbn, this.ResponseFromBooks.bind(comp3))
+            let id_book = document.querySelector("#id_book_text_input").value
+            this.middleware.GetBookFromIDBook(id_book, this.ResponseFromBooks.bind(comp3))
+        }else{
+            let id_author = document.querySelector("#id_author_text_input").value
+            this.middleware.GetAuthorFromIDAuthor(id_author, this.ResponseFromAuthors.bind(comp3))
         }
     }
 
@@ -47,6 +50,18 @@ class Comp3 extends Home{
             document.querySelector(".result_after_save[value='0']").innerText = ""
         }else{
             document.querySelector(".result_after_save[value='0']").innerText = "Libro non trovato"
+        }
+    }
+
+    ResponseFromAuthors(json_data){
+        if (json_data !== "nok"){
+            document.querySelector(".text_input[name='name']").value = json_data.nome
+            document.querySelector(".text_input[name='surname']").value = json_data.cognome
+            document.querySelector(".text_input[name='dateb']").value = json_data.data_nascita
+            document.querySelector(".text_input[name='nation']").value = json_data.stato_provenienza
+            document.querySelector(".result_after_save[value='0']").innerText = ""
+        }else{
+            document.querySelector(".result_after_save[value='2']").innerText = "Autore non trovato"
         }
     }
 }
