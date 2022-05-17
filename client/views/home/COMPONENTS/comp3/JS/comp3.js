@@ -58,9 +58,9 @@ class Comp3 extends Home{
         this.CleanAllPage()
         let the_id = document.querySelector("#mini_form_text_input").value
         if (this.num_option == 0){
-            this.middleware.GetBookFromIDBook(the_id, this.ResponseFrom)
+            this.middleware.GetBookFromIDBook(the_id, this.ResponseFrom.bind(comp3))
         }else{
-            this.middleware.GetAuthorFromIDAuthor(the_id, this.ResponseFrom)
+            this.middleware.GetAuthorFromIDAuthor(the_id, this.ResponseFrom.bind(comp3))
         }
     }
 
@@ -73,7 +73,7 @@ class Comp3 extends Home{
             }
             document.querySelector(".result_after_save[value='0']").innerText = ""
         }else{
-            document.querySelector(".result_after_save[value='0']").innerText = "Libro non trovato"
+            document.querySelector(".result_after_save[value='0']").innerText = this.num_option == "0" ? "Libro non trovato" : "Autore non trovato"
         }
     }
 

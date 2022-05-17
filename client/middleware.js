@@ -1,8 +1,8 @@
 class Middleware{
 
     constructor(){
-        //this.url = "http://localhost/casa_editrice_web_app/rest/middleware.php";
-        this.url = "http://localhost:8080/casa_editrice_web_app/rest/middleware.php";
+        this.url = "http://localhost/casa_editrice_web_app/rest/middleware.php";
+        //this.url = "http://localhost:8080/casa_editrice_web_app/rest/middleware.php";
         //this.url = "http://192.168.1.66/casa_editrice_web_app/rest/middleware.php";
     }
 
