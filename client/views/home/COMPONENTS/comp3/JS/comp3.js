@@ -16,7 +16,8 @@ class Comp3 extends Home{
 
     AddEvents(){
         document.querySelectorAll(".option_button").forEach(ele => ele.addEventListener("click", (e) => {this.SwitchPage(e.target.value)}))
-        document.querySelectorAll(".search_button").forEach(ele => ele.addEventListener("click", (e) => {this.SendSearch(e)}))
+        document.querySelector(".search_button").addEventListener("click", (e) => {this.SendSearch(e)})
+        document.querySelector(".modify_button").addEventListener("click", (e) => {this.SendModifyRequest(e)})
     }
 
     SwitchPage(num_option){
@@ -28,6 +29,7 @@ class Comp3 extends Home{
         this.CleanAllPage()
         this.CleanMiniForm()
         this.num_option = num_option
+        this.the_id = null
     }
 
     SwitchBookPage(){
@@ -72,6 +74,7 @@ class Comp3 extends Home{
                 cont++
             }
             document.querySelector(".result_after_save[value='0']").innerText = ""
+            this.the_id = document.querySelector("#mini_form_text_input").value
         }else{
             document.querySelector(".result_after_save[value='0']").innerText = this.num_option == "0" ? "Libro non trovato" : "Autore non trovato"
         }
@@ -87,6 +90,30 @@ class Comp3 extends Home{
 
     CleanMiniForm(){
         document.querySelector("#mini_form_text_input").value = ""
+    }
+
+    SendModifyRequest(e){
+        e.preventDefault()
+        if (this.num_option == "0"){
+            var table = "book"
+        }else{
+            var table = "author"
+        }
+        if (this.the_id !== null){
+            let form_data = new FormData(document.querySelector(".main_form"))
+            form_data = JSON.stringify(Object.fromEntries(form_data))
+            this.middleware.SendModifyRequest(this.the_id, table, form_data, this.ResponseAfterModify.bind(comp3))
+        }
+    }
+
+    ResponseAfterModify(json_data){
+        if (json_data !== "nok"){
+            document.querySelector(".result_after_save[value='1']").innerText = "Modifica avvenuta con successo"
+            this.CleanAllPage()
+            this.CleanMiniForm()
+        }else{
+            document.querySelector(".result_after_save[value='1']").innerText = "Modifica non avvenuta"
+        }
     }
 
 }

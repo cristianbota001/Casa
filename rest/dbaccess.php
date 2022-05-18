@@ -56,8 +56,13 @@
             return $this->SerializeQuery($query);
         }
 
-        private function CheckIfBookExists($form){
+        /* private function CheckIfBookExistsForFilter($form){
             $query = mysqli_query($this->conn, "SELECT catalogo_libri.* FROM catalogo_libri NATURAL JOIN autore WHERE titolo = '". $form["title"] ."' AND genere = '". $form["genre"] ."' AND anno = '". $form["year"] ."' AND isbn = '". $form["isbn"] ."' AND id_autore = '". $form["author"] ."'");
+            return $this->BooleanQuery($query);
+        } */
+
+        private function CheckIfBookExists($isbn){
+            $query = mysqli_query($this->conn, "SELECT catalogo_libri.* FROM catalogo_libri WHERE isbn = '$isbn'");
             return $this->BooleanQuery($query);
         }
 
@@ -67,7 +72,7 @@
         }
         
         public function SaveNewBook($form){
-            if (!$this->CheckIfBookExists($form)){
+            if (!$this->CheckIfBookExists($form["isbn"])){
                 mysqli_query($this->conn, "INSERT INTO catalogo_libri(id_autore, titolo, genere, anno, ISBN) VALUES('". $form["author"] ."','". $form["title"] ."','". $form["genre"] ."','". $form["year"] ."','". $form["isbn"] ."')");
                 return "ok";
             }else{
@@ -100,6 +105,22 @@
             }else{
                 return "nok";
             }
+        }
+
+        public function ModifyBookTable($the_id, $parameters){
+            if ($this->GetBookFromIDBook($the_id)["ISBN"] != $parameters["isbn"]){
+                if (!$this->CheckIfBookExists($parameters["isbn"])){
+                    mysqli_query($this->conn, "UPDATE catalogo_libri SET titolo = '". $parameters["title"] ."', genere = '". $parameters["genre"] ."', anno = '". $parameters["year"] ."', ISBN = '". $parameters["isbn"] ."' WHERE id_catalogo_libri = '$the_id'");
+                    return "ok";
+                }
+                else{
+                    return "nok";
+                }
+            }else{
+                mysqli_query($this->conn, "UPDATE catalogo_libri SET titolo = '". $parameters["title"] ."', genere = '". $parameters["genre"] ."', anno = '". $parameters["year"] ."', ISBN = '". $parameters["isbn"] ."' WHERE id_catalogo_libri = '$the_id'");
+                return "ok";
+            }
+            
         }
     }
 

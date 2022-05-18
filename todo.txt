@@ -5,5 +5,5 @@
 5) quando si caricano le tabelle fare l'effetto css del caricamento
 6) quando sono su un componente, e quando riclicco non deve re-renderare ogni volta
 7) dopo il salvataggio di dati, fare un contenitrore contennete il messaggio di avviso
-8) magari fare piu filtri
 9) fare l'effetto della dissolventa nel aggiungi
+10) per vedere se il libro esiste controllare solo l'isbn

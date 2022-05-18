@@ -55,4 +55,10 @@ class Middleware{
         })
     }
 
+    SendModifyRequest(the_id, table, parameters, callback){
+        this.SendRequest("PUT", null, this.url + "?modify=" + the_id + "&table=" + table + "&parameters=" + parameters).then(json_data => {
+            callback(json_data["response"]);
+        })
+    }
+
 }

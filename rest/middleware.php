@@ -18,6 +18,9 @@ class Middleware{
             case "POST":{
                 $this->SwitchMethodPost();
             } break;
+            case "PUT":{
+                $this->SwitchMethodPut();
+            } break;
         }
     }
 
@@ -57,6 +60,12 @@ class Middleware{
         }
         else{
             //forbidden response 403
+        }
+    }
+
+    private function SwitchMethodPut(){
+        if (isset($_GET["modify"]) && isset($_GET["table"]) && isset($_GET["parameters"])){
+            $this->ModifyTable();
         }
     }
 
@@ -102,6 +111,11 @@ class Middleware{
 
     private function GetAuthorFromIDAuthor(){
         $value = $this->logic->GetAuthorFromIDAuthor($_GET["get_author_from_id_author"]);
+        echo json_encode($value);
+    }
+
+    private function ModifyTable(){
+        $value = $this->logic->ModifyTable($_GET["modify"], $_GET["table"], $_GET["parameters"]);
         echo json_encode($value);
     }
 
