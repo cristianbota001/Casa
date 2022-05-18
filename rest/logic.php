@@ -77,8 +77,8 @@
             if ($table == "book"){
                 return ["response" => $this->dbaccess->ModifyBookTable($the_id, $parameters)];
             }else if ($table == "author"){
-
-           }
+                return ["response" => $this->dbaccess->ModifyAuthorTable($the_id, $parameters)];
+            }
         }
 
     }

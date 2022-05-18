@@ -122,6 +122,16 @@
             }
             
         }
+
+        public function ModifyAuthorTable($the_id, $parameters){
+            if (!$this->CheckIfAuthorExists($parameters)){
+                mysqli_query($this->conn, "UPDATE autore SET nome = '". $parameters["name"] ."', cognome = '". $parameters["surname"] ."', data_nascita = '". $parameters["dateb"] ."', stato_provenienza = '". $parameters["nation"] ."' WHERE id_autore = '$the_id'");
+                return "ok";
+            }
+            else{
+                return "nok";
+            }
+        }
     }
 
 ?>
