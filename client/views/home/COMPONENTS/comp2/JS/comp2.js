@@ -15,7 +15,7 @@ class Comp2 extends Home{
     }
 
     AddEvents(){
-        document.querySelectorAll(".option_button").forEach(ele => ele.addEventListener("click", (e) => {this.SwitchForm(e.target.value)}))
+        document.querySelectorAll(".option_button").forEach(ele => ele.addEventListener("click", (e) => {this.SwitchForm(e.target.value); this.ChangeButtonsColors(e.target, ".option_button");}))
         document.querySelectorAll(".save_button").forEach(ele => ele.addEventListener("click", (e) => {this.SaveToDB(e)}))
     }
 

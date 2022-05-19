@@ -3,8 +3,8 @@ var form;
 window.onload = () => {
 
     form = new Form();
-    //form.InitSession()
-    //form.AddWindowEvents()
+    form.InitSession()
+    form.AddWindowEvents()
    
 }
 

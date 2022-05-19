@@ -3,8 +3,8 @@ var home;
 window.onload = () => {
 
     home = new Home();
-    //home.InitSession()
-    //home.AddWindowEvents()
+    home.InitSession()
+    home.AddWindowEvents()
     home.AddHomeEvents()
     home.SwitchPage("0", "Visualizza tutto")
     
@@ -29,7 +29,16 @@ class Home extends Logic{
         document.querySelector(".close_navbar_div").addEventListener("click", () => {
             document.querySelector(".navbar_div").classList.toggle("navbar_div_toggle")
         })
-        document.querySelectorAll(".navbar_button").forEach(ele => {ele.addEventListener("click", (e) => {this.SwitchPage(e.target.value, e.target.name)})})
+        document.querySelectorAll(".navbar_button").forEach(ele => {ele.addEventListener("click", (e) => {this.SwitchPage(e.target.value, e.target.name); this.ChangeButtonsColors(e.target, ".navbar_button");})})
+        document.querySelector(".logo_title").addEventListener("click", () => {window.location = this.url })
+       
+        /* window.addEventListener("resize", () => {
+            let div = document.querySelector(".navbar_div")
+            console.log("top => ", div.scrollHeight, "client width => ", div.clientWidth)
+        }) */
+
+        
+
     }
 
     SwitchPage(num_page, name_page){
@@ -42,6 +51,11 @@ class Home extends Logic{
         document.querySelector(".second_div").innerHTML = "<h1 class='second_div_title'>" + name_page + "</h1>"
         document.querySelector(".second_div").appendChild(obj)
     }   
+
+    ChangeButtonsColors(ele, name){
+        document.querySelectorAll(name).forEach(ele => { ele.classList.remove("button_color_toggle")})
+        ele.classList.add("button_color_toggle")
+    }
 
     GetHeader(row) {
         let arr = []

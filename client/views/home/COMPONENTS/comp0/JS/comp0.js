@@ -15,7 +15,7 @@ class Comp0 extends Home{
     }
 
     AddButtonsEvents(){
-        document.querySelectorAll(".option_button").forEach(ele => ele.addEventListener("click", (e) => {this.GetTables(e.target.value)}))
+        document.querySelectorAll(".option_button").forEach(ele => ele.addEventListener("click", (e) => {this.GetTables(e.target.value); this.ChangeButtonsColors(e.target, ".option_button")}))
     }
 
     GetTables(num_option){

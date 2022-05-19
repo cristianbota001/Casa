@@ -15,7 +15,7 @@ class Comp3 extends Home{
     }
 
     AddEvents(){
-        document.querySelectorAll(".option_button").forEach(ele => ele.addEventListener("click", (e) => {this.SwitchPage(e.target.value)}))
+        document.querySelectorAll(".option_button").forEach(ele => ele.addEventListener("click", (e) => {this.SwitchPage(e.target.value); this.ChangeButtonsColors(e.target, ".option_button")}))
         document.querySelector(".search_button").addEventListener("click", (e) => {this.SendSearch(e)})
         document.querySelector(".modify_button").addEventListener("click", (e) => {this.SendModifyRequest(e)})
         document.querySelector(".remove_button").addEventListener("click", (e) => {this.SendDeleteRequest(e)})

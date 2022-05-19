@@ -140,3 +140,7 @@ body{
     margin: 0%;
     justify-content: center;
 }
+
+.button_color_toggle{
+    background-color: rgb(104, 104, 201);
+}

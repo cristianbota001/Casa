@@ -61,7 +61,7 @@ body{
     min-width: 150px;
 }
 .navbar_button:hover{
-    background-color: rgb(107, 159, 202);
+    background-color: rgb(42, 101, 150);
 }
 
 .navbar_div_rl_but{
@@ -190,6 +190,7 @@ body{
     color: rgb(70, 137, 191);
     font-family: Nunito;
     margin: 0%;
+    cursor: pointer;
 }
 
 .main_div{
@@ -214,4 +215,8 @@ body{
     margin: 0%;
     text-align: start;
     color: rgb(70, 137, 191);
+}
+
+.button_color_toggle{
+    background-color: rgb(42, 101, 150);
 }

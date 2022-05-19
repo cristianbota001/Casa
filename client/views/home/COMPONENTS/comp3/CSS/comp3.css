@@ -118,6 +118,10 @@ body{
     margin: 0%;
 }
 
+.button_color_toggle{
+    background-color: rgb(104, 104, 201);
+}
+
 .mini_form, .modify_cont_div{
     min-width: 90%;
     height: fit-content;
