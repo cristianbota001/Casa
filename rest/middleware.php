@@ -21,6 +21,9 @@ class Middleware{
             case "PUT":{
                 $this->SwitchMethodPut();
             } break;
+            case "DELETE":{
+                $this->SwitchMethodDelete();
+            } break;
         }
     }
 
@@ -66,6 +69,12 @@ class Middleware{
     private function SwitchMethodPut(){
         if (isset($_GET["modify"]) && isset($_GET["table"]) && isset($_GET["parameters"])){
             $this->ModifyTable();
+        }
+    }
+
+    private function SwitchMethodDelete(){
+        if (isset($_GET["delete"]) && isset($_GET["table"])){
+            $this->DeleteTable();
         }
     }
 
@@ -116,6 +125,11 @@ class Middleware{
 
     private function ModifyTable(){
         $value = $this->logic->ModifyTable($_GET["modify"], $_GET["table"], $_GET["parameters"]);
+        echo json_encode($value);
+    }
+
+    private function DeleteTable(){
+        $value = $this->logic->DeleteTable($_GET["delete"], $_GET["table"]);
         echo json_encode($value);
     }
 

@@ -123,6 +123,11 @@
             mysqli_query($this->conn, "UPDATE autore SET nome = '". $parameters["name"] ."', cognome = '". $parameters["surname"] ."', data_nascita = '". $parameters["dateb"] ."', stato_provenienza = '". $parameters["nation"] ."' WHERE id_autore = '$the_id'");
             return "ok"; 
         }
+
+        public function DeleteBookTable($the_id){
+            mysqli_query($this->conn, "DELETE FROM catalogo_libri WHERE id_catalogo_libri = $the_id");
+            return "ok"; 
+        }
     }
 
 ?>

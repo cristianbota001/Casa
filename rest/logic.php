@@ -81,6 +81,14 @@
             }
         }
 
+        public function DeleteTable($the_id, $table){
+            if ($table == "book"){
+                return ["response" => $this->dbaccess->DeleteBookTable($the_id)];
+            }else if ($table == "author"){
+                return ["response" => $this->dbaccess->DeleteAuthorTable($the_id)];
+            }
+        }
+
     }
 
 ?>
