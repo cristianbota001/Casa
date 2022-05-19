@@ -52,25 +52,15 @@
         }
 
         public function GetBooksWithFilter($parameters){
-            $query = mysqli_query($this->conn, "SELECT id_autore, nome, cognome, stato_provenienza, id_catalogo_libri, titolo, genere, anno, ISBN FROM catalogo_libri NATURAL JOIN autore WHERE IF('". $parameters["author_name"] ."' <> 'NULL', autore.nome = '".  $parameters["author_name"] ."' , 1) AND IF('". $parameters["author_surname"] ."' <> 'NULL', autore.cognome = '".  $parameters["author_surname"] ."' , 1) AND IF('". $parameters["author_nation"] ."' <> 'NULL', autore.stato_provenienza = '".  $parameters["author_nation"] ."' , 1) AND IF('". $parameters["pdate"] ."' <> 'NULL', catalogo_libri.anno = '".  $parameters["pdate"] ."' , 1) AND IF('". $parameters["genre"] ."' <> 'NULL', catalogo_libri.genere = '".  $parameters["genre"] ."' , 1) AND IF('". $parameters["title"] ."' <> 'NULL', catalogo_libri.titolo = '".  $parameters["title"] ."' , 1) AND IF('". $parameters["isbn"] ."' <> 'NULL', catalogo_libri.ISBN = '".  $parameters["isbn"] ."' , 1)");
+            $query = mysqli_query($this->conn, "SELECT id_autore, nome, cognome, stato_provenienza, data_nascita, id_catalogo_libri, titolo, genere, anno, ISBN FROM catalogo_libri NATURAL JOIN autore WHERE IF('". $parameters["author_name"] ."' <> 'NULL', autore.nome = '".  $parameters["author_name"] ."' , 1) AND IF('". $parameters["author_surname"] ."' <> 'NULL', autore.cognome = '".  $parameters["author_surname"] ."' , 1) AND IF('". $parameters["author_nation"] ."' <> 'NULL', autore.stato_provenienza = '".  $parameters["author_nation"] ."' , 1) AND IF('". $parameters["dateb"] ."' <> 'NULL', autore.data_nascita = '".  $parameters["dateb"] ."' , 1) AND IF('". $parameters["pdate"] ."' <> 'NULL', catalogo_libri.anno = '".  $parameters["pdate"] ."' , 1) AND IF('". $parameters["genre"] ."' <> 'NULL', catalogo_libri.genere = '".  $parameters["genre"] ."' , 1) AND IF('". $parameters["title"] ."' <> 'NULL', catalogo_libri.titolo = '".  $parameters["title"] ."' , 1) AND IF('". $parameters["isbn"] ."' <> 'NULL', catalogo_libri.ISBN = '".  $parameters["isbn"] ."' , 1)");
             return $this->SerializeQuery($query);
         }
-
-        /* private function CheckIfBookExistsForFilter($form){
-            $query = mysqli_query($this->conn, "SELECT catalogo_libri.* FROM catalogo_libri NATURAL JOIN autore WHERE titolo = '". $form["title"] ."' AND genere = '". $form["genre"] ."' AND anno = '". $form["year"] ."' AND isbn = '". $form["isbn"] ."' AND id_autore = '". $form["author"] ."'");
-            return $this->BooleanQuery($query);
-        } */
 
         private function CheckIfBookExists($isbn){
             $query = mysqli_query($this->conn, "SELECT catalogo_libri.* FROM catalogo_libri WHERE isbn = '$isbn'");
             return $this->BooleanQuery($query);
         }
 
-        /* private function CheckIfAuthorExists($form){
-            $query = mysqli_query($this->conn, "SELECT autore.* FROM autore WHERE nome = '". $form["name"] ."' AND cognome = '". $form["surname"] ."' AND data_nascita = '". $form["dateb"] ."' AND stato_provenienza = '". $form["nation"] ."'");
-            return $this->BooleanQuery($query);
-        } */
-        
         public function SaveNewBook($form){
             if (!$this->CheckIfBookExists($form["isbn"])){
                 mysqli_query($this->conn, "INSERT INTO catalogo_libri(id_autore, titolo, genere, anno, ISBN) VALUES('". $form["author"] ."','". $form["title"] ."','". $form["genre"] ."','". $form["year"] ."','". $form["isbn"] ."')");

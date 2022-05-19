@@ -59,11 +59,11 @@ class Comp3 extends Home{
     SendSearch(e){
         e.preventDefault()
         this.CleanAllPage()
-        let the_id = document.querySelector("#mini_form_text_input").value
+        let id = document.querySelector("#mini_form_text_input").value
         if (this.num_option == 0){
-            this.middleware.GetBookFromIDBook(the_id, this.ResponseFrom.bind(comp3))
+            this.middleware.GetBookFromIDBook(id, this.ResponseFrom.bind(comp3))
         }else{
-            this.middleware.GetAuthorFromIDAuthor(the_id, this.ResponseFrom.bind(comp3))
+            this.middleware.GetAuthorFromIDAuthor(id, this.ResponseFrom.bind(comp3))
         }
     }
 
@@ -132,8 +132,9 @@ class Comp3 extends Home{
             document.querySelector(".result_after_save[value='1']").innerText = mess + " avvenuta con successo"
             this.CleanAllPage()
             this.CleanMiniForm()
+            this.the_id = null
         }else{
-            document.querySelector(".result_after_save[value='1']").innerText = mess+  " non avvenuta"
+            document.querySelector(".result_after_save[value='1']").innerText = mess + " non avvenuta"
         }
     }
 
