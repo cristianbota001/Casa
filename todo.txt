@@ -9,4 +9,4 @@
 10) per vedere se il libro esiste controllare solo l'isbn
 11) forse togliere il controllo degli autori, quindi si possono inserire autore con stesse informaizoni
 12) mettere il bottone esci
-13) quando modifico ma non ci sono valori fa schifo
+13) quando modifico ma non ci sono valori fa schifo IMPORTANTE, IL PROBLEMA è CHE L'ERRORE FUNZIONA QUANDO NON CI SONO RIGHE CON L'ERRORE

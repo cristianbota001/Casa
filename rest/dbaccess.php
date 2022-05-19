@@ -128,6 +128,11 @@
             mysqli_query($this->conn, "DELETE FROM catalogo_libri WHERE id_catalogo_libri = $the_id");
             return "ok"; 
         }
+
+        public function DeleteAuthorTable($the_id){
+            mysqli_query($this->conn, "DELETE FROM autore WHERE id_autore = $the_id");
+            return "ok"; 
+        }
     }
 
 ?>
