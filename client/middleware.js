@@ -61,4 +61,10 @@ class Middleware{
         })
     }
 
+    SendDeleteRequest(the_id, table, callback){
+        this.SendRequest("DELETE", null, this.url + "?delete=" + the_id + "&table=" + table).then(json_data => {
+            callback(json_data["response"]);
+        })
+    }
+
 }

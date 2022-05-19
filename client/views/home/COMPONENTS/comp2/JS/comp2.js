@@ -36,7 +36,7 @@ class Comp2 extends Home{
         json_data.forEach(ele => {
             let opt = document.createElement("option")
             opt.setAttribute("value", ele.id_autore)
-            opt.innerText = ele.nome + " " + ele.cognome
+            opt.innerHTML = ele.nome + " " + ele.cognome + " - ID: " + ele.id_autore
             document.querySelector(".select_author").appendChild(opt)
         })
     }

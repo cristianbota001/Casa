@@ -18,6 +18,7 @@ class Comp3 extends Home{
         document.querySelectorAll(".option_button").forEach(ele => ele.addEventListener("click", (e) => {this.SwitchPage(e.target.value)}))
         document.querySelector(".search_button").addEventListener("click", (e) => {this.SendSearch(e)})
         document.querySelector(".modify_button").addEventListener("click", (e) => {this.SendModifyRequest(e)})
+        document.querySelector(".remove_button").addEventListener("click", (e) => {this.SendDeleteRequest(e)})
     }
 
     SwitchPage(num_option){
@@ -106,13 +107,33 @@ class Comp3 extends Home{
         }
     }
 
+    SendDeleteRequest(e){
+        e.preventDefault()
+        if (this.num_option == "0"){
+            var table = "book"
+        }else{
+            var table = "author"
+        }
+        if (this.the_id !== null){
+            this.middleware.SendDeleteRequest(this.the_id, table, this.ResponseAfterDelete.bind(comp3))
+        }
+    }
+
     ResponseAfterModify(json_data){
+        this.ResponseAfter(json_data, "Modifica")
+    }
+
+    ResponseAfterDelete(json_data){
+        this.ResponseAfter(json_data, "Eliminazione")
+    }
+
+    ResponseAfter(json_data, mess){
         if (json_data !== "nok"){
-            document.querySelector(".result_after_save[value='1']").innerText = "Modifica avvenuta con successo"
+            document.querySelector(".result_after_save[value='1']").innerText = mess + " avvenuta con successo"
             this.CleanAllPage()
             this.CleanMiniForm()
         }else{
-            document.querySelector(".result_after_save[value='1']").innerText = "Modifica non avvenuta"
+            document.querySelector(".result_after_save[value='1']").innerText = mess+  " non avvenuta"
         }
     }
 

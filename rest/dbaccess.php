@@ -52,7 +52,7 @@
         }
 
         public function GetBooksWithFilter($parameters){
-            $query = mysqli_query($this->conn, "SELECT nome, cognome, stato_provenienza, titolo, genere, anno, ISBN FROM catalogo_libri NATURAL JOIN autore WHERE IF('". $parameters["author_name"] ."' <> 'NULL', autore.nome = '".  $parameters["author_name"] ."' , 1) AND IF('". $parameters["author_surname"] ."' <> 'NULL', autore.cognome = '".  $parameters["author_surname"] ."' , 1) AND IF('". $parameters["author_nation"] ."' <> 'NULL', autore.stato_provenienza = '".  $parameters["author_nation"] ."' , 1) AND IF('". $parameters["pdate"] ."' <> 'NULL', catalogo_libri.anno = '".  $parameters["pdate"] ."' , 1) AND IF('". $parameters["genre"] ."' <> 'NULL', catalogo_libri.genere = '".  $parameters["genre"] ."' , 1) AND IF('". $parameters["title"] ."' <> 'NULL', catalogo_libri.titolo = '".  $parameters["title"] ."' , 1) AND IF('". $parameters["isbn"] ."' <> 'NULL', catalogo_libri.ISBN = '".  $parameters["isbn"] ."' , 1)");
+            $query = mysqli_query($this->conn, "SELECT id_autore, nome, cognome, stato_provenienza, id_catalogo_libri, titolo, genere, anno, ISBN FROM catalogo_libri NATURAL JOIN autore WHERE IF('". $parameters["author_name"] ."' <> 'NULL', autore.nome = '".  $parameters["author_name"] ."' , 1) AND IF('". $parameters["author_surname"] ."' <> 'NULL', autore.cognome = '".  $parameters["author_surname"] ."' , 1) AND IF('". $parameters["author_nation"] ."' <> 'NULL', autore.stato_provenienza = '".  $parameters["author_nation"] ."' , 1) AND IF('". $parameters["pdate"] ."' <> 'NULL', catalogo_libri.anno = '".  $parameters["pdate"] ."' , 1) AND IF('". $parameters["genre"] ."' <> 'NULL', catalogo_libri.genere = '".  $parameters["genre"] ."' , 1) AND IF('". $parameters["title"] ."' <> 'NULL', catalogo_libri.titolo = '".  $parameters["title"] ."' , 1) AND IF('". $parameters["isbn"] ."' <> 'NULL', catalogo_libri.ISBN = '".  $parameters["isbn"] ."' , 1)");
             return $this->SerializeQuery($query);
         }
 
@@ -66,10 +66,10 @@
             return $this->BooleanQuery($query);
         }
 
-        private function CheckIfAuthorExists($form){
+        /* private function CheckIfAuthorExists($form){
             $query = mysqli_query($this->conn, "SELECT autore.* FROM autore WHERE nome = '". $form["name"] ."' AND cognome = '". $form["surname"] ."' AND data_nascita = '". $form["dateb"] ."' AND stato_provenienza = '". $form["nation"] ."'");
             return $this->BooleanQuery($query);
-        }
+        } */
         
         public function SaveNewBook($form){
             if (!$this->CheckIfBookExists($form["isbn"])){
@@ -81,12 +81,8 @@
         }
 
         public function SaveNewAuthor($form){
-            if (!$this->CheckIfAuthorExists($form)){
-                mysqli_query($this->conn, "INSERT INTO autore(nome, cognome, data_nascita, stato_provenienza) VALUES('". $form["name"] ."','". $form["surname"] ."','". $form["dateb"] ."','". $form["nation"] ."')");
-                return "ok";
-            }else{
-                return "nok";
-            }
+            mysqli_query($this->conn, "INSERT INTO autore(nome, cognome, data_nascita, stato_provenienza) VALUES('". $form["name"] ."','". $form["surname"] ."','". $form["dateb"] ."','". $form["nation"] ."')");
+            return "ok";
         }
 
         public function GetBookFromIDBook($id_book){
@@ -124,13 +120,8 @@
         }
 
         public function ModifyAuthorTable($the_id, $parameters){
-            if (!$this->CheckIfAuthorExists($parameters)){
-                mysqli_query($this->conn, "UPDATE autore SET nome = '". $parameters["name"] ."', cognome = '". $parameters["surname"] ."', data_nascita = '". $parameters["dateb"] ."', stato_provenienza = '". $parameters["nation"] ."' WHERE id_autore = '$the_id'");
-                return "ok";
-            }
-            else{
-                return "nok";
-            }
+            mysqli_query($this->conn, "UPDATE autore SET nome = '". $parameters["name"] ."', cognome = '". $parameters["surname"] ."', data_nascita = '". $parameters["dateb"] ."', stato_provenienza = '". $parameters["nation"] ."' WHERE id_autore = '$the_id'");
+            return "ok"; 
         }
     }
 
