@@ -19,8 +19,14 @@ class Logic{
     }
 
     InitSession(){
+        if (localStorage.getItem("session") === null){
+            localStorage.setItem("session" , "false")
+        }
         if (sessionStorage.getItem("session") === null){
             sessionStorage.setItem("session" , "false")
+        }
+        if (localStorage.getItem("session") === "true"){
+            sessionStorage.setItem("session" , "true")
         }
     }
 
@@ -30,12 +36,10 @@ class Logic{
         })
     }
 
-    /* RemoveLoaderPage(){
-        document.querySelector(".first_panel_loader").style.display = "none"
-    } */
-
     Route(){
         
+        this.InitSession()
+
         if (window.location.pathname == "/casa_editrice_web_app/client/views/home.html"){
             if (sessionStorage.getItem("session") == "false"){
                 window.location = this.url + "/form.html"

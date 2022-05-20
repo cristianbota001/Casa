@@ -47,7 +47,7 @@ body{
     margin-left: 15px;
 }
 
-.navbar_button{
+.navbar_button, .exit_button{
     padding: 15px;
     border-radius: 20px;
     font-family: Poppins;
@@ -59,6 +59,12 @@ body{
     box-shadow: 2px 2px 5px 0 rgb(58, 58, 58);
     transition: 0.2s;
     min-width: 150px;
+}
+.exit_button{
+    background-color: rgb(131, 131, 229);
+}
+.exit_button:hover{
+    background-color: rgb(74, 74, 168);
 }
 .navbar_button:hover{
     background-color: rgb(42, 101, 150);
@@ -150,6 +156,7 @@ body{
         transform: translateX(-150%);
         box-shadow: 2px 2px 5px 0 rgb(58, 58, 58);
         transition: 0.3s;
+        z-index: 2;
     }
     .left_navbar_button, .right_navbar_button{
         display: none;
@@ -159,7 +166,7 @@ body{
         margin-bottom: 15px;
         width: 80%;
     }
-    .navbar_button{
+    .navbar_button, .exit_button{
         min-width: 100%;
     }
     .close_navbar_div{
@@ -240,8 +247,8 @@ body{
     height: 64px;
     margin: 8px;
     border-radius: 50%;
-    border: 6px solid #fff;
-    border-color: #fff transparent #fff transparent;
+    border: 6px solid rgb(66, 71, 137);
+    border-color: rgb(66, 71, 137) transparent rgb(66, 71, 137) transparent;
     animation: lds-dual-ring 1.2s linear infinite;
   }
   @keyframes lds-dual-ring {

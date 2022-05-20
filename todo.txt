@@ -6,3 +6,4 @@
 6) quando sono su un componente, e quando riclicco non deve re-renderare ogni volta
 9) fare l'effetto della dissolventa nel aggiungi
 12) mettere il bottone esci
+13) cambiare le funzioni con quelle a freccia

@@ -3,7 +3,6 @@ var home;
 window.onload = () => {
 
     home = new Home();
-    home.InitSession()
     home.AddWindowEvents()
     home.AddHomeEvents()
     home.SwitchPage("0", "Visualizza tutto")
@@ -31,6 +30,7 @@ class Home extends Logic{
         })
         document.querySelectorAll(".navbar_button").forEach(ele => {ele.addEventListener("click", (e) => {this.SwitchPage(e.target.value, e.target.name); this.ChangeButtonsColors(e.target, ".navbar_button");})})
         document.querySelector(".logo_title").addEventListener("click", () => {window.location = this.url })
+        document.querySelector(".exit_button").addEventListener("click", this.HandleExit)
     }
 
     SwitchPage(num_page, name_page){
@@ -42,6 +42,12 @@ class Home extends Logic{
         document.querySelector(".second_div").innerHTML = "<h1 class='second_div_title'>" + name_page + "</h1>"
         document.querySelector(".second_div").appendChild(obj)
     }   
+
+    HandleExit = () => {
+        localStorage.setItem("session" , "false")
+        sessionStorage.setItem("session" , "false")
+        window.location = this.url + "/index.html"
+    }
 
     ChangeButtonsColors(ele, name){
         document.querySelectorAll(name).forEach(ele => { ele.classList.remove("button_color_toggle")})
