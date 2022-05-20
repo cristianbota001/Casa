@@ -15,7 +15,7 @@ class Form extends Logic{
         this.AddFormPageEvents()
     }
 
-    AddFormPageEvents(){
+    AddFormPageEvents = () => {
         document.querySelector("#accedi_bottone").addEventListener("click", (e) => {
            this.SendFormData(e, "#access_form")
            e.preventDefault();
@@ -27,13 +27,13 @@ class Form extends Logic{
         document.querySelectorAll(".switch_form").forEach(ele => {ele.addEventListener("click", () => {this.FormDivToggle()})})
     }
 
-    SendFormData(e, id_form){
+    SendFormData = (e, id_form) => {
         e.preventDefault(); //rivedere
         let form_data = new FormData(document.querySelector(id_form));
-        this.middleware.SendFormData(form_data, this.GestioneForm.bind(form));
+        this.middleware.SendFormData(form_data, this.GestioneForm);
     }
 
-    GestioneForm(json_data){
+    GestioneForm = (json_data) => {
         if (json_data !== "ok"){
             document.querySelectorAll(".username_error")[this.page_form_index].innerHTML = json_data.username ? json_data.username :  ""
             document.querySelectorAll(".password1_error")[this.page_form_index].innerHTML = json_data.password1 ? json_data.password1 : ""
@@ -49,14 +49,14 @@ class Form extends Logic{
         }
     }
 
-    FormDivToggle(){
+    FormDivToggle = () => {
         this.FadeEffect()
         document.querySelector(".form_div_main").classList.toggle("form_div_main_toggle")
         this.page_form_index = this.page_form_index == 1 ? 0 : 1
         document.querySelectorAll(".input_div").forEach(ele => {ele.querySelector("input").value = ""; ele.querySelector("p").innerHTML = ""; ele.querySelector("input").style.boxShadow  = "2px 2px 5px 0 rgb(116, 116, 116)"})
     }
 
-    FadeEffect(){
+    FadeEffect = () => {
         if (this.page_form_index == 0) {
             document.querySelector(".accesso_div").classList.add("fade_out_effect");
             document.querySelector(".registrazione_div").classList.add("fade_in_effect");
@@ -70,7 +70,7 @@ class Form extends Logic{
         }
     }
 
-    Session(){
+    Session = () => {
         let ele = document.querySelector("#rim")
         if (ele.checked){
             localStorage.setItem("session", "true")

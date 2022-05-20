@@ -18,7 +18,7 @@ class Logic{
  
     }
 
-    InitSession(){
+    InitSession = () => {
         if (localStorage.getItem("session") === null){
             localStorage.setItem("session" , "false")
         }
@@ -30,13 +30,13 @@ class Logic{
         }
     }
 
-    AddWindowEvents(){
+    AddWindowEvents = () => {
         window.addEventListener("pageshow", () => {
             this.Route()
         })
     }
 
-    Route(){
+    Route = () => {
         
         this.InitSession()
 

@@ -15,7 +15,7 @@ class Home extends Logic{
         super()
     }
 
-    AddHomeEvents(){
+    AddHomeEvents = () => {
         document.querySelector(".right_navbar_button").addEventListener("click", () => {
             document.querySelector(".navbar_div").scrollTop  += 70
         })
@@ -33,7 +33,7 @@ class Home extends Logic{
         document.querySelector(".exit_button").addEventListener("click", this.HandleExit)
     }
 
-    SwitchPage(num_page, name_page){
+    SwitchPage = (num_page, name_page) => {
         document.querySelector(".navbar_div").classList.toggle("navbar_div_toggle")
         let obj = document.createElement("object")
         obj.type = 'text/html'
@@ -49,12 +49,12 @@ class Home extends Logic{
         window.location = this.url + "/index.html"
     }
 
-    ChangeButtonsColors(ele, name){
+    ChangeButtonsColors = (ele, name) => {
         document.querySelectorAll(name).forEach(ele => { ele.classList.remove("button_color_toggle")})
         ele.classList.add("button_color_toggle")
     }
 
-    GetHeader(row) {
+    GetHeader = (row) => {
         let arr = []
         for (const [key, value] of Object.entries(row)){
             arr.push(key)
@@ -62,7 +62,7 @@ class Home extends Logic{
         return arr
     }
 
-    MakeTable(json_data, html_table){
+    MakeTable = (json_data, html_table) => {
 
         if (json_data.length == 0){
             return 0

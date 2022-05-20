@@ -14,12 +14,12 @@ class Comp2 extends Home{
         this.SwitchForm("0")
     }
 
-    AddEvents(){
+    AddEvents = () => {
         document.querySelectorAll(".option_button").forEach(ele => ele.addEventListener("click", (e) => {this.SwitchForm(e.target.value); this.ChangeButtonsColors(e.target, ".option_button");}))
         document.querySelectorAll(".save_button").forEach(ele => ele.addEventListener("click", (e) => {this.SaveToDB(e)}))
     }
 
-    SwitchForm(num_option){
+    SwitchForm = (num_option) => {
         if (num_option == 0){
             document.querySelector(".add_info_form_1").style.display = "flex"
             document.querySelector(".add_info_form_2").style.display = "none"
@@ -31,7 +31,7 @@ class Comp2 extends Home{
         this.num_option = num_option
     }
 
-    AddAuthorsInSelectTag(json_data){
+    AddAuthorsInSelectTag = (json_data) => {
         document.querySelector(".select_author").innerHTML = ""
         json_data.forEach(ele => {
             let opt = document.createElement("option")
@@ -41,30 +41,30 @@ class Comp2 extends Home{
         })
     }
 
-    GetAuthors(){
-        this.middleware.GetAuthorsTable(this.AddAuthorsInSelectTag.bind(comp2))
+    GetAuthors = () => {
+        this.middleware.GetAuthorsTable(this.AddAuthorsInSelectTag)
     }
 
-    ClearInputTexts(){
+    ClearInputTexts = () => {
         document.querySelectorAll(".text_input").forEach(ele => {ele.value = ""})
     }
 
-    AddResEffect(mess){
+    AddResEffect = (mess) => {
         document.querySelector(".result_after_save[value = '" + this.num_option + "']").innerText = mess
     }
 
-    SaveToDB(e){
+    SaveToDB = (e) => {
         e.preventDefault()
         if (this.num_option == "0"){
             let form_data = new FormData(document.querySelector(".add_info_form_1"))
-            this.middleware.SaveNewBook(form_data, this.ResponseAfterSave.bind(comp2))
+            this.middleware.SaveNewBook(form_data, this.ResponseAfterSave)
         }else{
             let form_data = new FormData(document.querySelector(".add_info_form_2"))
-            this.middleware.SaveNewAuthor(form_data, this.ResponseAfterSave.bind(comp2))
+            this.middleware.SaveNewAuthor(form_data, this.ResponseAfterSave)
         }
     }
 
-    ResponseAfterSave(response){
+    ResponseAfterSave = (response) => {
         if (response == "ok"){
             this.ClearInputTexts()
             this.AddResEffect("Salvato con successo")

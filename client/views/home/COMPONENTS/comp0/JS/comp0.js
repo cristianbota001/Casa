@@ -14,22 +14,22 @@ class Comp0 extends Home{
         this.AddButtonsEvents()
     }
 
-    AddButtonsEvents(){
+    AddButtonsEvents = () => {
         document.querySelectorAll(".option_button").forEach(ele => ele.addEventListener("click", (e) => {this.GetTables(e.target.value); this.ChangeButtonsColors(e.target, ".option_button")}))
     }
 
-    GetTables(num_option){
+    GetTables = (num_option) => {
         switch (num_option){
             case "0" : {
-                this.middleware.GetBooksTable(this.PopulateTable.bind(comp0))
+                this.middleware.GetBooksTable(this.PopulateTable)
             } break;
             case "1" : {
-                this.middleware.GetAuthorsTable(this.PopulateTable.bind(comp0))
+                this.middleware.GetAuthorsTable(this.PopulateTable)
             }
         }
     }
 
-    PopulateTable(json_data){
+    PopulateTable = (json_data) => {
         let table =  document.querySelector(".table")
         table.innerHTML = ""
         this.MakeTable(json_data, table)

@@ -13,7 +13,7 @@ class Comp1 extends Home{
         this.AddEvents()
     }
 
-    AddEvents(){
+    AddEvents = () => {
         document.querySelector(".option_button").addEventListener("click", () => {
             document.querySelector(".filter_menu_div").classList.toggle("filter_menu_div_toggle")
         })
@@ -26,17 +26,17 @@ class Comp1 extends Home{
         })
     }
 
-    GetBooksWithFilter(){
-        this.middleware.GetBooksWithFilter(this.GetParameters(), this.PopulateTable.bind(comp1))
+    GetBooksWithFilter = () => {
+        this.middleware.GetBooksWithFilter(this.GetParameters(), this.PopulateTable)
     }
 
-    PopulateTable(json_data){
+    PopulateTable = (json_data) => {
         let table =  document.querySelector(".table")
         table.innerHTML = ""
         this.MakeTable(json_data, table)
     }
 
-    GetParameters(){
+    GetParameters = () => {
         let param = {}
         document.querySelectorAll(".text_input").forEach(ele => {
             if (ele.value.replace(/\s/g, "") != ""){
