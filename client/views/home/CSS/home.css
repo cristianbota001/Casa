@@ -60,13 +60,8 @@ body{
     transition: 0.2s;
     min-width: 150px;
 }
-.exit_button{
-    background-color: rgb(131, 131, 229);
-}
-.exit_button:hover{
-    background-color: rgb(74, 74, 168);
-}
-.navbar_button:hover{
+
+.navbar_button:hover, .exit_button:hover{
     background-color: rgb(42, 101, 150);
 }
 

@@ -165,4 +165,29 @@ body{
     justify-content: center;
     display: flex;
     margin-left: 20px;
+    white-space: nowrap;
+}
+
+.wrap_that{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media screen and (max-width : 768px) {
+    .mini_form{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .search_button{
+        margin: 0%;
+    }
+    .wrap_that{
+        margin-top: 20px;
+    }
+    #mini_form_text_input{
+        min-width: 60%;
+    }
 }
