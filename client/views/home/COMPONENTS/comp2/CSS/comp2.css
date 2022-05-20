@@ -57,7 +57,7 @@ body{
 }
 
 .option_button:hover{
-    background-color: rgb(104, 104, 201);
+    background-color: rgb(74, 74, 168);
 }
 
 ::-webkit-scrollbar{
@@ -142,5 +142,5 @@ body{
 }
 
 .button_color_toggle{
-    background-color: rgb(104, 104, 201);
+    background-color: rgb(74, 74, 168);
 }

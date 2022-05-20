@@ -31,14 +31,6 @@ class Home extends Logic{
         })
         document.querySelectorAll(".navbar_button").forEach(ele => {ele.addEventListener("click", (e) => {this.SwitchPage(e.target.value, e.target.name); this.ChangeButtonsColors(e.target, ".navbar_button");})})
         document.querySelector(".logo_title").addEventListener("click", () => {window.location = this.url })
-       
-        /* window.addEventListener("resize", () => {
-            let div = document.querySelector(".navbar_div")
-            console.log("top => ", div.scrollHeight, "client width => ", div.clientWidth)
-        }) */
-
-        
-
     }
 
     SwitchPage(num_page, name_page){
@@ -46,8 +38,7 @@ class Home extends Logic{
         let obj = document.createElement("object")
         obj.type = 'text/html'
         obj.data = './home/COMPONENTS/comp' + num_page + '.html'
-        obj.width = "100%"
-        obj.height = "100%"
+        obj.setAttribute("class", "object")
         document.querySelector(".second_div").innerHTML = "<h1 class='second_div_title'>" + name_page + "</h1>"
         document.querySelector(".second_div").appendChild(obj)
     }   

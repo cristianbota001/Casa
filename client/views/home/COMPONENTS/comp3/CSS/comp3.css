@@ -64,7 +64,7 @@ body{
 }
 
 .option_button:hover{
-    background-color: rgb(104, 104, 201);
+    background-color: rgb(74, 74, 168);
 }
 
 ::-webkit-scrollbar{
@@ -111,6 +111,7 @@ body{
     position: relative;
     overflow-y: auto;
     margin: 10px;
+    align-items: flex-start;
 }
 
 #mini_form_text_input{
@@ -119,7 +120,7 @@ body{
 }
 
 .button_color_toggle{
-    background-color: rgb(104, 104, 201);
+    background-color: rgb(74, 74, 168);
 }
 
 .mini_form, .modify_cont_div{
@@ -149,6 +150,10 @@ body{
     width: 90%;
     height: fit-content;
     margin: 0%;
+}
+
+.mini_form, .main_form{
+    margin: 5px;
 }
 
 .result_after_save{
