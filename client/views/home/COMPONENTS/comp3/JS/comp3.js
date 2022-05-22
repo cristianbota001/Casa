@@ -29,6 +29,7 @@ class Comp3 extends Home{
         }
         this.CleanAllPage()
         this.CleanMiniForm()
+        document.querySelector(".result_after_save[value='1']").innerText = ""
         this.num_option = num_option
         this.the_id = null
     }
@@ -78,6 +79,7 @@ class Comp3 extends Home{
             this.the_id = document.querySelector("#mini_form_text_input").value
         }else{
             document.querySelector(".result_after_save[value='0']").innerText = this.num_option == "0" ? "Libro non trovato" : "Autore non trovato"
+            this.the_id = null
         }
     }
 

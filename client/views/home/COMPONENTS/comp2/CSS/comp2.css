@@ -144,3 +144,25 @@ body{
 .button_color_toggle{
     background-color: rgb(74, 74, 168);
 }
+
+.that_div{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media screen and (max-width : 768px) {
+    .select_cont_div{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .save_button{
+        margin: 0%;
+    }
+    .select_author{
+        min-width: none;
+        width: 100px;
+    }
+}

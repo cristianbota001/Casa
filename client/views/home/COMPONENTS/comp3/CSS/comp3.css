@@ -111,7 +111,7 @@ body{
     position: relative;
     overflow-y: auto;
     margin: 10px;
-    align-items: flex-start;
+    align-items: center;
 }
 
 #mini_form_text_input{
@@ -144,6 +144,7 @@ body{
 .search_button{
     margin: 0%;
     margin-left: 20px;
+    margin-right: 20px;
 }
 
 .main_form{
@@ -164,11 +165,10 @@ body{
     margin: 0%;
     justify-content: center;
     display: flex;
-    margin-left: 20px;
     white-space: nowrap;
 }
 
-.wrap_that{
+.wrap_that, .wrap_that_2{
     width: fit-content;
     height: fit-content;
     display: flex;
@@ -177,7 +177,7 @@ body{
 }
 
 @media screen and (max-width : 768px) {
-    .mini_form{
+    .mini_form, .modify_cont_div{
         flex-direction: column;
         align-items: flex-start;
     }
@@ -189,5 +189,8 @@ body{
     }
     #mini_form_text_input{
         min-width: 60%;
+    }
+    .wrap_that_2{
+        margin-bottom: 20px;
     }
 }
