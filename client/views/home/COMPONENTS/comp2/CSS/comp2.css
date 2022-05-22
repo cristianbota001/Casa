@@ -125,11 +125,12 @@ body{
 }
 
 .save_button{
-    background-color: rgb(73, 52, 70);
+    background-color: white;
+    color: rgb(92, 92, 198);
 }
 
 .save_button:hover{
-    background-color: rgb(120, 87, 115);
+    background-color: rgb(216, 216, 251);
 }
 
 .result_after_save{

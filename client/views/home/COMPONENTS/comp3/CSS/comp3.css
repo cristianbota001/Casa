@@ -56,11 +56,16 @@ body{
     font-family: Poppins;
 }
 .search_button, .modify_button, .remove_button{
-    background-color: rgb(73, 52, 70);
+    background-color: white;
+    color: rgb(92, 92, 198);
+}
+
+.remove_button{
+    color: rgb(198, 92, 92);
 }
 
 .search_button:hover, .modify_button:hover, .remove_button:hover{
-    background-color: rgb(120, 87, 115);
+    background-color: rgb(216, 216, 251);
 }
 
 .option_button:hover{
