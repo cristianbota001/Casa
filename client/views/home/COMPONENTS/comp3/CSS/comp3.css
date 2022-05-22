@@ -188,6 +188,7 @@ body{
     }
     .search_button{
         margin: 0%;
+        margin-right: 20px;
     }
     .wrap_that{
         margin-top: 20px;

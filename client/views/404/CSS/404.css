@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0%;
+    overflow-y: hidden;
+    position: relative;
+    background-image: url("../MEDIA/theme.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(3px);
+}
+
+@font-face {
+    font-family: lol;
+    src: url("../FONTS/AmaticSC-Bold.ttf");
+}
+
+h1{
+    font-family: lol;
+    font-size: 80px;
+    color: white;
+}
