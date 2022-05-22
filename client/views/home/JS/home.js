@@ -34,13 +34,16 @@ class Home extends Logic{
     }
 
     SwitchPage = (num_page, name_page) => {
-        document.querySelector(".navbar_div").classList.toggle("navbar_div_toggle")
-        let obj = document.createElement("object")
-        obj.type = 'text/html'
-        obj.data = './home/COMPONENTS/comp' + num_page + '.html'
-        obj.setAttribute("class", "object")
-        document.querySelector(".second_div").innerHTML = "<h1 class='second_div_title'>" + name_page + "</h1>"
-        document.querySelector(".second_div").appendChild(obj)
+        if (this.current_page === undefined || this.current_page != num_page){
+            this.current_page = num_page
+            document.querySelector(".navbar_div").classList.toggle("navbar_div_toggle")
+            let obj = document.createElement("object")
+            obj.type = 'text/html'
+            obj.data = './home/COMPONENTS/comp' + num_page + '.html'
+            obj.setAttribute("class", "object")
+            document.querySelector(".second_div").innerHTML = "<h1 class='second_div_title'>" + name_page + "</h1>"
+            document.querySelector(".second_div").appendChild(obj)
+        }
     }   
 
     HandleExit = () => {
