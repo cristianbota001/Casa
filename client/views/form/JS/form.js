@@ -18,7 +18,6 @@ class Form extends Logic{
     AddFormPageEvents = () => {
         document.querySelector("#accedi_bottone").addEventListener("click", (e) => {
            this.SendFormData(e, "#access_form")
-           e.preventDefault();
         })
         document.querySelector("#registrati_bottone").addEventListener("click", (e) => {
            this.SendFormData(e, "#registration_form")
