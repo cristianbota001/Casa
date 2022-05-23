@@ -7,7 +7,8 @@ body{
     height: 100vh;
     margin: 0%;
     overflow-y: hidden;
-    background-image: linear-gradient(to bottom right,  rgb(212, 245, 204), rgb(118, 214, 94));
+    /* background-image: linear-gradient(to bottom right,  rgb(204, 217, 245), rgb(130, 162, 229)); */
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
 }
 
 @font-face {
@@ -30,7 +31,7 @@ body{
     min-height: 70px;
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.116);
-    box-shadow: 2px 2px 5px 0 rgb(89, 89, 89);
+    box-shadow: 2px 2px 5px 0 rgba(35, 35, 35, 0.557);
 }
 
 .navbar_div{
@@ -51,18 +52,20 @@ body{
     padding: 15px;
     border-radius: 20px;
     font-family: Poppins;
-    background-color: rgb(70, 137, 191);
+    /* background-color: rgb(70, 137, 191); */
+    /* background: linear-gradient(to right, rgba(92, 143, 254, 0.36), rgb(36, 119, 242)); */
+    background-color: rgba(255, 255, 255, 0.183);
     color: white;
     cursor: pointer;
     border: none;
     outline: none;
-    box-shadow: 2px 2px 5px 0 rgb(58, 58, 58);
+    box-shadow: 2px 2px 5px 0 rgba(35, 35, 35, 0.557);
     transition: 0.2s;
     min-width: 150px;
 }
 
 .navbar_button:hover, .exit_button:hover{
-    background-color: rgb(42, 101, 150);
+    background-color: rgba(255, 255, 255, 0.355);
 }
 
 .navbar_div_rl_but{
@@ -122,7 +125,7 @@ body{
 .burger_menu div{
     width: 100%;
     height: 2px;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
 }
 
 .div_logo_2{
@@ -147,7 +150,9 @@ body{
         position: absolute;
         left: 0px;
         top: 0px;
-        background-color: rgb(137, 179, 213);
+        /* background-color: rgb(137, 179, 213); */
+        background-color: rgba(116, 116, 116, 0.43);
+        backdrop-filter: blur(4px);
         transform: translateX(-150%);
         box-shadow: 2px 2px 5px 0 rgb(58, 58, 58);
         transition: 0.3s;
@@ -173,6 +178,9 @@ body{
     .div_logo_2{
         display: flex;
     }
+    .navbar_button{
+        background-color: rgba(150, 150, 150, 0.782);
+    }
 }
 
 .navbar_div_toggle{
@@ -188,7 +196,7 @@ body{
 }
 
 .logo_title{
-    color: rgb(70, 137, 191);
+    color: rgb(255, 255, 255);
     font-family: Nunito;
     margin: 0%;
     cursor: pointer;
@@ -215,11 +223,11 @@ body{
     width: 100%;
     margin: 0%;
     text-align: start;
-    color: rgb(70, 137, 191);
+    color: rgb(255, 255, 255);
 }
 
 .button_color_toggle{
-    background-color: rgb(42, 101, 150);
+    background-color: rgba(255, 255, 255, 0.355);
 }
 
 .object{
@@ -228,24 +236,6 @@ body{
     z-index: 1;
 }
 
-.lds-dual-ring {
-    display: inline-block;
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    z-index: 0;
-  }
-  .lds-dual-ring:after {
-    content: " ";
-    display: block;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border-radius: 50%;
-    border: 6px solid rgb(66, 71, 137);
-    border-color: rgb(66, 71, 137) transparent rgb(66, 71, 137) transparent;
-    animation: lds-dual-ring 1.2s linear infinite;
-  }
   @keyframes lds-dual-ring {
     0% {
       transform: rotate(0deg);
