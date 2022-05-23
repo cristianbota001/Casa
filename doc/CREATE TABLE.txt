@@ -1,0 +1,4 @@
+1) CREATE DATABASE casa_editrice_web_app;
+2) CREATE TABLE amministratore(id_amministratore INT AUTO_INCREMENT, username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, PRIMARY KEY(id_amministratore))
+3) CREATE TABLE autore(id_autore INT AUTO_INCREMENT, nome VARCHAR(255) NOT NULL, cognome VARCHAR(255) NOT NULL, data_nascita DATE, stato_provenienza VARCHAR(255) NOT NULL, PRIMARY KEY(id_autore))
+4) CREATE TABLE catalogo_libri(id_catalogo_libri INT AUTO_INCREMENT, id_autore INT NOT NULL, titolo VARCHAR(255) NOT NULL, genere VARCHAR(255) NOT NULL, anno INT NOT NULL, ISBN VARCHAR(255) NOT NULL, PRIMARY KEY(id_catalogo_libri), INDEX(id_autore), FOREIGN KEY(id_autore) REFERENCES autore(id_autore) ON DELETE CASCADE ON UPDATE CASCADE)

@@ -1,0 +1,1 @@
+- L'applicazione web è altamente responsive e user friendly, quindi da provare anche da mobile, oppure sempre da pc diminuendo man mano la lunghezza della pagina.
