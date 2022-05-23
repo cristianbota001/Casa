@@ -8,7 +8,8 @@ body{
     margin: 0%;
     overflow-y: hidden;
     position: relative;
-    background-image: linear-gradient(to bottom right,  rgb(186, 198, 237), rgb(239, 184, 193));
+    /* background-image: linear-gradient(to bottom right,  rgb(186, 198, 237), rgb(239, 184, 193)); */
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
 }
 
 @font-face {
@@ -72,7 +73,7 @@ body{
     position: relative;
     z-index: 2;
     overflow-x: hidden;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.183);
     border-radius: 20px;
 }
 
@@ -94,19 +95,15 @@ body{
 
 .titolo_form_1 {
     font-family: Nunito2;
-    color: rgb(70, 137, 191);
+    color: rgb(255, 255, 255);
     font-size: 40px;
     margin: 0%;
 }
 
 .titolo_form_2{
     font-family: Nunito2;
-    color: rgb(43, 43, 43);
+    color: rgb(224, 209, 249);
     margin: 0%;
-}
-
-.titolo_form_1_re{
-    color: rgb(143, 70, 191);
 }
 
 .form_main_sub_div{
@@ -173,7 +170,7 @@ body{
 }
 
 .input_div .username_error, .input_div .password1_error, .input_div .password2_error{
-    color: rgb(203, 72, 72);
+    color: rgb(170, 70, 70);
     font-family: Poppins;
     width: 100%;
     text-align: start;
@@ -193,14 +190,14 @@ body{
     color: rgb(255, 255, 255);
     font-family: Poppins;
     font-size: 14px;
-    background-color: rgb(70, 137, 191);
+    background-color: rgba(255, 255, 255, 0.183);
     cursor: pointer;
     box-shadow: 2px 2px 5px 0 rgb(58, 58, 58);
     border-radius: 10px;
 }
 
 .button:hover{
-    background-color: rgb(107, 159, 202);
+    background-color: rgba(255, 255, 255, 0.355);
 }
 
 .form_image, .form_image_2{
@@ -239,11 +236,13 @@ body{
 }
 
 ::-webkit-scrollbar-track{
-    background-color: rgb(159, 173, 221);
+    background-color: rgba(255, 255, 255, 0.324);
+    border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb{
-    background-color: rgb(84, 111, 197);
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
 }
 
 .rimani_connesso_div{
@@ -296,20 +295,21 @@ body{
         min-width: 100%;
         min-height: 100%;
         border-radius: 0%;
-        background-color: transparent;
         box-shadow: none;
         margin-bottom: 100px;
+        background-color: transparent;
     }
     .form_div_main{
         width: 100%;
         justify-content: flex-start;
+        
     }
     .form_image{
         height: 100%;
         display: none;
     }
     .form_main_responsive_div{
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.183);
     }
     .form_image_2{
         width: 100%;
@@ -347,29 +347,3 @@ body{
         margin-bottom: 20px;
     }
 }
-
-/* .lds-dual-ring {
-    display: inline-block;
-    position: absolute;
-    width: 80px;
-    height: 80px;
-  }
-  .lds-dual-ring:after {
-    content: " ";
-    display: block;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border-radius: 50%;
-    border: 6px solid #fff;
-    border-color: #fff transparent #fff transparent;
-    animation: lds-dual-ring 1.2s linear infinite;
-  }
-  @keyframes lds-dual-ring {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  } */

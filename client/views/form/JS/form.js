@@ -38,9 +38,9 @@ class Form extends Logic{
             document.querySelectorAll(".password1_error")[this.page_form_index].innerHTML = json_data.password1 ? json_data.password1 : ""
             document.querySelector(".password2_error").innerHTML = json_data.password2 ? json_data.password2 : ""
             
-            if (json_data.username) {document.querySelectorAll(".username_error")[this.page_form_index].parentElement.querySelector(".text_input").style.boxShadow = "2px 2px 5px 0 rgb(203, 72, 72)";}
-            if (json_data.password1) {document.querySelectorAll(".password1_error")[this.page_form_index].parentElement.querySelector(".text_input").style.boxShadow = "2px 2px 5px 0 rgb(203, 72, 72)";}
-            if (json_data.password2) {document.querySelector(".password2_error").parentElement.querySelector(".text_input").style.boxShadow = "2px 2px 5px 0 rgb(203, 72, 72)";}
+            if (json_data.username) {document.querySelectorAll(".username_error")[this.page_form_index].parentElement.querySelector(".text_input").style.boxShadow = "2px 2px 5px 0 rgb(170, 70, 70)";}
+            if (json_data.password1) {document.querySelectorAll(".password1_error")[this.page_form_index].parentElement.querySelector(".text_input").style.boxShadow = "2px 2px 5px 0 rgb(170, 70, 70)";}
+            if (json_data.password2) {document.querySelector(".password2_error").parentElement.querySelector(".text_input").style.boxShadow = "2px 2px 5px 0 rgb(170, 70, 70)";}
         
         }else{
             this.Session()

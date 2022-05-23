@@ -51,14 +51,14 @@ body{
     cursor: pointer;
     border: none;
     outline: none;
-    background-color: rgb(131, 131, 229);
+    background-color: rgba(255, 255, 255, 0.183);
     color: white;
     transition: 0.2s;
     font-family: Poppins;
 }
 
 .option_button:hover{
-    background-color: rgb(74, 74, 168);
+    background-color: rgba(255, 255, 255, 0.355);
 }
 
 ::-webkit-scrollbar{
@@ -67,12 +67,12 @@ body{
 }
 
 ::-webkit-scrollbar-track{
-    background-color: rgb(159, 173, 221);
+    background-color: rgba(255, 255, 255, 0.324);
     border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb{
-    background-color: rgb(84, 111, 197);
+    background-color: rgb(255, 255, 255);
     border-radius: 20px;
 }
 
@@ -144,7 +144,7 @@ body{
 }
 
 .button_color_toggle{
-    background-color: rgb(74, 74, 168);
+    background-color: rgba(255, 255, 255, 0.355);
 }
 
 .that_div{

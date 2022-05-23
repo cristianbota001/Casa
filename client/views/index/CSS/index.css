@@ -8,7 +8,8 @@ body{
     margin: 0%;
     overflow-y: hidden;
     position: relative;
-    background-image: linear-gradient(to bottom right,  rgb(186, 198, 237), rgb(239, 184, 193));
+    /* background-image: linear-gradient(to bottom right,  rgb(186, 198, 237), rgb(239, 184, 193)); */
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
 }
 
 @font-face {
@@ -47,7 +48,7 @@ body{
 
 .main_titolo{
     font-family: Poppins;
-    color: rgb(7, 101, 178);
+    color: rgb(255, 255, 255);
     font-size: 40px;
     width: 100%;
     text-align: center;
@@ -72,14 +73,14 @@ body{
     color: rgb(255, 255, 255);
     font-family: Poppins;
     font-size: 14px;
-    background-color: rgb(70, 137, 191);
+    background-color: rgba(255, 255, 255, 0.183);
     cursor: pointer;
     box-shadow: 2px 2px 5px 0 rgb(58, 58, 58);
     border-radius: 10px;
 }
 
 .link:hover{
-    background-color: rgb(107, 159, 202);
+    background-color: rgba(255, 255, 255, 0.355);
 }
 
 @media screen and (max-height: 570px){
@@ -94,9 +95,11 @@ body{
 }
 
 ::-webkit-scrollbar-track{
-    background-color: rgb(159, 173, 221);
+    background-color: rgba(255, 255, 255, 0.324);
+    border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb{
-    background-color: rgb(84, 111, 197);
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
 }
