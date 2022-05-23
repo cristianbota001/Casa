@@ -7,7 +7,7 @@ body{
     height: 100vh;
     margin: 0%;
     overflow-y: hidden;
-    background-image: linear-gradient(to bottom right,  rgb(186, 198, 237), rgb(239, 184, 193));
+    background-image: linear-gradient(to bottom right,  rgb(212, 245, 204), rgb(118, 214, 94));
 }
 
 @font-face {
