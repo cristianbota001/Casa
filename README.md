@@ -9,8 +9,6 @@ Team Project For School
 - the application also provides login and registration
 - the application is full responsive and can be used via mobile
 
-- PC version
 ![pc_ver](./pc_ver.png)
 
-- MOBILE version
 ![tel_ver](./tel_ver.png)
